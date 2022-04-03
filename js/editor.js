@@ -37,6 +37,20 @@ class Editor {
 
 function onWindowLoaded() {
     Editor.newTab('Default');
+    Editor.input.addEventListener('keydown', function(e) {
+        console.log(e);
+
+        if (e.ctrlKey && e.key === 's') {
+            e.preventDefault();
+        }
+
+        if (e.key === 'Tab') {
+            document.execCommand('insertText', false, '    ');
+            Editor.onTextChanged();
+
+            e.preventDefault();
+        }
+    });
 }
 
 window.Editor = Editor;
