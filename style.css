@@ -1,0 +1,92 @@
+html, body {
+    margin: 0px;
+    width: 100%;
+    height: 100%;
+}
+
+/* Main window */
+
+.editor {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-flow: column;
+}
+
+.header {
+    flex: 0 1 64px;
+    background-color: #aa80e2;
+}
+
+.container {
+    flex: 1 1 auto;
+    display: flex;
+    flex-flow: row;
+    background-color: #101010;
+}
+
+.footer {
+    flex: 0 1 32px;
+    background-color: #aa80e2;
+}
+
+/* Container */
+
+.file-browser {
+    flex: 0 1 20%;
+    background-color: #1c1c1c;
+}
+
+.code-window {
+    flex: 1 1 auto;
+    display: flex;
+    flex-flow: column;
+    border-left-style: solid;
+    border-left-color: #60319e;
+}
+
+/* Code Window */
+
+.buttons {
+    flex: 0 1 32px;
+    background-color: #525252;
+}
+
+.tabs {
+    flex: 0 1 32px;
+    background-color: #1d1d1d;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-color: #525252;
+}
+
+.code-area {
+    flex: 1 1 auto;
+    display: flex;
+    flex-flow: row;
+}
+
+/* Code area */
+
+.gutter {
+    flex: 0 1 64px;
+    background-color: #222222;
+    border-right-style: solid;
+    border-right-width: 1px;
+    border-color: #cecece;
+}
+
+.input-area {
+    flex: 1 1 auto;
+    overflow: hidden;
+}
+
+#text-area {
+    width: 100%;
+    height: 100%;
+    border: none;
+    resize: none;
+
+    background-color: #101010;
+    color: #ffffff;
+}
