@@ -38,8 +38,6 @@ class Editor {
 function onWindowLoaded() {
     Editor.newTab('Default');
     Editor.input.addEventListener('keydown', function(e) {
-        console.log(e);
-
         if (e.ctrlKey && e.key === 's') {
             e.preventDefault();
         }
