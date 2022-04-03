@@ -7,7 +7,7 @@
         <title>Mos6502 Editor</title>
 
         <link rel="stylesheet" href="style.css">
-        <script type="text/javascript" src="script.js"></script>
+        <script type="module" src="js/editor.js"></script>
     </head>
 
     <body>
@@ -23,15 +23,16 @@
                     <div class="buttons">
 
                     </div>
-                    <div class="tabs">
+                    <div id="tab-container" class="tabs">
 
                     </div>
                     <div class="code-area">
-                        <div class="gutter">
+                        <div id="editor-gutter" class="gutter">
 
                         </div>
-                        <div class="input-area" spellcheck="false">
-                            <textarea id="text-area"></textarea>
+                        <div class="input-area">
+                            <textarea id="editor-input" placeholder="Enter your code here", spellcheck="false" oninput="onTextChanged()"></textarea>
+                            <div id="editor-overlay"></div>
                         </div>
                     </div>
                 </div>
