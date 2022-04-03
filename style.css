@@ -67,16 +67,23 @@ html, body {
     flex: 1 1 auto;
     display: flex;
     flex-flow: row;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 12pt;
 }
 
 /* Code area */
 
 .gutter {
-    flex: 0 1 64px;
+    flex: 0 1 60px;
+    display: flex;
+    flex-flow: column;
     background-color: #222222;
+    color: #ffffff;
     border-right-style: solid;
     border-right-width: 1px;
     border-color: #cecece;
+    text-align: right;
+    padding-right: 4px;
 }
 
 .input-area {
@@ -92,11 +99,11 @@ html, body {
     height: 100%;
     background-color: #0000;
     padding: 0px;
+    font-family: inherit;
+    font-size: inherit;
 }
 
 #editor-input, #editor-overlay {
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 20pt;
     position: absolute;
     width: 100%;
     height: 100%;
@@ -119,7 +126,7 @@ html, body {
 
 #editor-overlay pre {
     display: inline;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: inherit;
     font-size: inherit;
 }
 
