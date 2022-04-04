@@ -1,48 +1,50 @@
+const common = [
+    { token: 'string.quote', regex: /^"/is, state: 'string.dquote' },
+    { token: 'string.quote', regex: /^'/is, state: 'string.squote' },
+    { token: 'number.format.bin', regex: /^0b[01]+/is },
+    { token: 'number.format.dec', regex: /^0d[0-9]+/is },
+    { token: 'number.format.hex', regex: /^0[hx][0-9a-f]+/is },
+    { token: 'number.decimal', regex: /^[0-9]+/is },
+    { token: 'control.paren.left', regex: /^\(/is },
+    { token: 'control.paren.right', regex: /^\)/is },
+    { token: 'control.colon', regex: /^:/is },
+    { token: 'control.comma', regex: /^,/is },
+]
+
+const states = {
+    'initial': [
+        { token: 'identifier.label', regex: /^[\._a-z][_a-z0-9]*?(?=:)/is },
+        { token: 'identifier.instruction', regex: /^[a-z]+/is, state: 'operands' },
+        { token: 'preprocessor', regex: /^#[^ \n]+/is, state: 'operands' },
+        { token: 'preprocessor.directive', regex: /^\.[^ \n]+/is, state: 'operands' },
+        { token: 'preprocessor.comment', regex: /^\/\/[^\n]*/is },
+        { token: 'preprocessor.comment', regex: /^\/\*.*?\*\//is },
+        { token: 'control.newline', regex: /^\n+/is },
+        { token: 'decorator.whitespace', regex: /^ +/is }
+    ],
+    'operands': [
+        { token: 'identifier.operand', regex: /^[a-z]+/is },
+        { token: 'control.newline', regex: /^\n+/is, state: 'last' },
+        { token: 'decorator.whitespace', regex: /^ +/is }
+    ],
+    'string.dquote': [
+        { token: 'string.text', regex: /^[^"\n\\]/is },
+        { token: 'string.escape', regex: /^\\./is },
+        { token: 'string.quote', regex: /^["\n]/is, state: 'last' }
+    ],
+    'string.squote': [
+        { token: 'string.text', regex: /^[^'\n\\]/is },
+        { token: 'string.escape', regex: /^\\./is },
+        { token: 'string.quote', regex: /^['\n]/is, state: 'last' }
+    ]
+}
+
+Array.prototype.push.apply(states.initial, common);
+Array.prototype.push.apply(states.operands, common);
+
 class Parser {
     static changed = true;
     static text = ''
-
-    static states = {
-        'initial': [
-            { token: 'identifier.label', regex: /^[\._a-z][_a-z0-9]*?(?=:)/is },
-            { token: 'identifier.instruction', regex: /^[a-z]+/is, state: 'operands' },
-            { token: 'preprocessor', regex: /^#[^ \n]+/is, state: 'operands' },
-            { token: 'preprocessor.directive', regex: /^\.[^ \n]+/is, state: 'operands' },
-            { token: 'preprocessor.comment', regex: /^\/\/[^\n]*/is },
-            { token: 'preprocessor.comment', regex: /^\/\*.*?\*\//is },
-            { token: 'control.colon', regex: /^:/is },
-            { token: 'control.comma', regex: /^,/is },
-            { token: 'control.paren.left', regex: /^\(/is },
-            { token: 'control.paren.right', regex: /^\)/is },
-            { token: 'control.newline', regex: /^\n+/is },
-            { token: 'decorator.whitespace', regex: /^ +/is }
-        ],
-        'operands': [
-            { token: 'string.quote', regex: /^"/is, state: 'string.dquote' },
-            { token: 'string.quote', regex: /^'/is, state: 'string.squote' },
-            { token: 'identifier.operand', regex: /^[a-z]+/is },
-            { token: 'number.format.bin', regex: /^0b[01]+/is },
-            { token: 'number.format.dec', regex: /^0d[0-9]+/is },
-            { token: 'number.format.hex', regex: /^0[hx][0-9a-f]+/is },
-            { token: 'number.decimal', regex: /^[0-9]+/is },
-            { token: 'control.colon', regex: /^:/is },
-            { token: 'control.comma', regex: /^,/is },
-            { token: 'control.paren.left', regex: /^\(/is },
-            { token: 'control.paren.right', regex: /^\)/is },
-            { token: 'control.newline', regex: /^\n+/is, state: 'last' },
-            { token: 'decorator.whitespace', regex: /^ +/is }
-        ],
-        'string.dquote': [
-            { token: 'string.text', regex: /^[^"\n\\]/is },
-            { token: 'string.escape', regex: /^\\./is },
-            { token: 'string.quote', regex: /^["\n]/is, state: 'last' }
-        ],
-        'string.squote': [
-            { token: 'string.text', regex: /^[^'\n\\]/is },
-            { token: 'string.escape', regex: /^\\./is },
-            { token: 'string.quote', regex: /^['\n]/is, state: 'last' }
-        ]
-    }
 
     static setText(text) {
         this.text = text;
@@ -61,7 +63,7 @@ class Parser {
         while (text.length > 0) {
             let found = false;
 
-            for (let pattern of this.states[state]) {
+            for (let pattern of states[state]) {
                 let result = pattern.regex.exec(text);
 
                 if (result?.length > 0) {
