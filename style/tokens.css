@@ -1,36 +1,21 @@
-.comment {
+.preprocessor { color: #fffd9f }
+.preprocessor.directive { color: #a1ecff }
+.preprocessor.comment {
     color: #808080;
     font-style: italic;
 }
 
-.preprocessor {
-    color: rgb(255, 253, 159);
-}
+.string.quote { color: #76ff53 }
+.string.text { color: #bfff94; }
+.string.escape { color: #fff78e }
 
-.directive {
-    color: #8bd4ff;
-}
+.identifier.label { color: #ffa37e }
+.identifier.instruction { color: #64b4ff }
+.identifier.operand { color: #c8aaff }
 
-.argument {
-    color: #c8aaff;
-}
+.number { color: #ff6e64; }
+.number.format { color: #ff64a5; }
 
-.label {
-    color: #ffaf81;
-}
+.control { color: #fff; }
 
-.instruction {
-    color: #71bbff;
-}
-
-.string-quote {
-    color: #76ff53;
-}
-
-.string-text {
-    color: #beff93;
-}
-
-.string-escape {
-    color: #fff78e;
-}
+.text { color: #fff; }

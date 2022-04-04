@@ -1,35 +1,38 @@
 <!DOCTYPE html>
 
 <html lang="en-US">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Mos6502 Editor</title>
 
-        <link href="style/style.css" rel="stylesheet">
-        <link href="style/tokens.css" rel="stylesheet">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Mos6502 Editor</title>
 
-        <script src="js/editor.js" type="module"></script>
-    </head>
+    <link href="style/style.css" rel="stylesheet">
+    <link href="style/tokens.css" rel="stylesheet">
 
-    <body>
-        <div class="editor">
-            <div class="header">
+    <script src="js/editor.js" type="module"></script>
+</head>
+
+<body>
+    <div class="editor">
+        <div class="header">
+        </div>
+        <div class="container">
+            <div id="tab-container" class="tabs">
             </div>
-            <div class="container">
-                <div id="tab-container" class="tabs">
+            <div id="editor-container" class="code-area">
+                <div id="editor-gutter" class="gutter">
                 </div>
-                <div id="editor-container" class="code-area">
-                    <div id="editor-gutter" class="gutter">
-                    </div>
-                    <div class="input-area">
-                        <textarea id="editor-input" placeholder="Enter your code here" spellcheck="false" oninput="Editor.onTextChanged()"></textarea>
-                        <div id="editor-overlay"></div>
-                    </div>
+                <div class="input-area">
+                    <textarea id="editor-input" placeholder="Enter your code here" spellcheck="false"
+                        oninput="Editor.onTextChanged()"></textarea>
+                    <div id="editor-overlay"></div>
                 </div>
-            </div>
-            <div class="footer">
             </div>
         </div>
-    </body>
+        <div class="footer">
+        </div>
+    </div>
+</body>
+
 </html>

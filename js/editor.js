@@ -17,7 +17,8 @@ class Editor {
     }
 
     static onTextChanged() {
-        this.overlay.innerHTML = Parser.tokenize(this.input.value);
+        Parser.setText(this.input.value);
+        Parser.setHighlight(this.overlay);
 
         let lineCount = this.input.value.split('\n').length;
         this.gutter.innerHTML = '';

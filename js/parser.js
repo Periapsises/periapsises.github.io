@@ -1,72 +1,106 @@
 class Parser {
+    static changed = true;
+    static text = ''
+
     static states = {
-        'start': [
-            {token: 'comment', regex: '//[^\n]*'},
-            {token: 'comment', regex: '/\\*', state: 'comment'},
-            {token: 'preprocessor', regex: '#[^ ]+', state: 'args'},
-            {token: 'directive', regex: '\\.[a-z]+', state: 'args'},
-            {token: 'label', regex: '[\\._a-z][_a-z0-9]+:'},
-            {token: 'instruction', regex: '[^ \n]+', state: 'args'},
-            {token: 'string-quote', regex: '"', state: 'string'},
-            {token: 'whitespace', regex: ' +'},
-            {token: 'text', regex: '[^\n]+'},
-            {token: 'newline', regex: '\n'}
+        'initial': [
+            { token: 'identifier.label', regex: /^[\._a-z][_a-z0-9]*?(?=:)/is },
+            { token: 'identifier.instruction', regex: /^[a-z]+/is, state: 'operands' },
+            { token: 'preprocessor', regex: /^#[^ \n]+/is, state: 'operands' },
+            { token: 'preprocessor.directive', regex: /^\.[^ \n]+/is, state: 'operands' },
+            { token: 'preprocessor.comment', regex: /^\/\/[^\n]*/is },
+            { token: 'preprocessor.comment', regex: /^\/\*.*?\*\//is },
+            { token: 'control.colon', regex: /^:/is },
+            { token: 'control.comma', regex: /^,/is },
+            { token: 'control.paren.left', regex: /^\(/is },
+            { token: 'control.paren.right', regex: /^\)/is },
+            { token: 'control.newline', regex: /^\n+/is },
+            { token: 'decorator.whitespace', regex: /^ +/is }
         ],
-        'comment': [
-            {token: 'comment', regex: '\\*/', state: 'start'},
-            {token: 'comment', regex: '[^\\*]+'},
-            {token: 'comment', regex: '\\*'}
-        ],
-        'args': [
-            {token: 'argument', regex: '[^ \n"]+'},
-            {token: 'string-quote', regex: '"', state: 'string'},
-            {token: 'whitespace', regex: ' +'},
-            {token: 'newline', regex: '\n', state: 'start'}
+        'operands': [
+            { token: 'string.quote', regex: /^"/is, state: 'string' },
+            { token: 'identifier.operand', regex: /^[a-z]+/is },
+            { token: 'number.format.bin', regex: /^0b[01]+/is },
+            { token: 'number.format.dec', regex: /^0d[0-9]+/is },
+            { token: 'number.format.hex', regex: /^0[hx][0-9a-f]+/is },
+            { token: 'number.decimal', regex: /^[0-9]+/is },
+            { token: 'control.colon', regex: /^:/is },
+            { token: 'control.comma', regex: /^,/is },
+            { token: 'control.paren.left', regex: /^\(/is },
+            { token: 'control.paren.right', regex: /^\)/is },
+            { token: 'control.newline', regex: /^\n+/is, state: 'last' },
+            { token: 'decorator.whitespace', regex: /^ +/is }
         ],
         'string': [
-            {token: 'string-text', regex: '[^"\n\\\\]+'},
-            {token: 'string-quote', regex: '"', state: 'last'},
-            {token: 'newline', regex: '\n', state: 'start'},
-            {token: 'string-escape', regex: '\\\\.'}
+            { token: 'string.text', regex: /^[^"\\]/is },
+            { token: 'string.escape', regex: /^\\./is },
+            { token: 'string.quote', regex: /^"/is, state: 'last' }
         ]
-    };
+    }
 
-    static tokenize(input) {
-        let last = 'start';
-        let state = 'start';
-        let compiled = '';
+    static setText(text) {
+        this.text = text;
+        this.changed = true;
+    }
 
-        while (input !== '') {
-            let fail = true;
+    static getTokens() {
+        if (!this.changed) return this.tokens;
+
+        let state = 'initial';
+        let stack = [];
+
+        let text = this.text;
+        const tokens = [];
+
+        while (text.length > 0) {
+            let found = false;
 
             for (let pattern of this.states[state]) {
-                const found = input.match(new RegExp(`^${pattern.regex}`, 'gi'));
+                let result = pattern.regex.exec(text);
 
-                if (found != null) {
-                    input = input.substring(found[0].length);
-                    compiled = compiled + `<span class="${pattern.token}">${found[0]}</span>`;
+                if (result?.length > 0) {
+                    tokens.push({ type: pattern.token, value: result[0] });
 
                     if (pattern.state != null) {
-                        if (pattern.state === 'last') {
-                            let temp = state;
-                            state = last;
-                            last = temp;
-                        }
-                        else {
-                            last = state;
+                        if (pattern.state == 'last') {
+                            state = stack.pop();
+                        } else {
+                            stack.push(state);
                             state = pattern.state;
                         }
                     }
 
-                    fail = false;
+                    text = text.slice(result[0].length);
+                    found = true;
                     break;
                 }
-            };
+            }
 
-            if (fail) input = '';
+            if (!found) {
+                text = text.slice(1);
+            };
         }
 
-        return '<pre>' + compiled + '</pre>';
+        this.tokens = tokens;
+        this.changed = false;
+
+        return tokens;
+    }
+
+    static setHighlight(element) {
+        const tokens = this.getTokens();
+
+        const container = document.createElement('pre');
+        element.innerHTML = '';
+        element.appendChild(container);
+
+        for (let token of tokens) {
+            const child = document.createElement('span');
+            child.className = token.type.replaceAll('.', ' ');
+            child.innerHTML = token.value;
+
+            container.appendChild(child);
+        }
     }
 }
 
