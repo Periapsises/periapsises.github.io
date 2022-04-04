@@ -83,6 +83,7 @@ class Parser {
             }
 
             if (!found) {
+                tokens.push({ type: 'text', value: text.slice(0, 1) });
                 text = text.slice(1);
             };
         }
