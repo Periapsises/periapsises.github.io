@@ -1,0 +1,36 @@
+.comment {
+    color: #808080;
+    font-style: italic;
+}
+
+.preprocessor {
+    color: rgb(255, 253, 159);
+}
+
+.directive {
+    color: #8bd4ff;
+}
+
+.argument {
+    color: #c8aaff;
+}
+
+.label {
+    color: #ffaf81;
+}
+
+.instruction {
+    color: #71bbff;
+}
+
+.string-quote {
+    color: #76ff53;
+}
+
+.string-text {
+    color: #beff93;
+}
+
+.string-escape {
+    color: #fff78e;
+}

@@ -6,39 +6,29 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Mos6502 Editor</title>
 
-        <link rel="stylesheet" href="style.css">
-        <script type="module" src="js/editor.js"></script>
+        <link href="style/style.css" rel="stylesheet">
+        <link href="style/tokens.css" rel="stylesheet">
+
+        <script src="js/editor.js" type="module"></script>
     </head>
 
     <body>
         <div class="editor">
             <div class="header">
-
             </div>
             <div class="container">
-                <div class="file-browser">
-
+                <div id="tab-container" class="tabs">
                 </div>
-                <div class="code-window">
-                    <div class="buttons">
-
+                <div id="editor-container" class="code-area">
+                    <div id="editor-gutter" class="gutter">
                     </div>
-                    <div id="tab-container" class="tabs">
-
-                    </div>
-                    <div id="editor-container" class="code-area">
-                        <div id="editor-gutter" class="gutter">
-
-                        </div>
-                        <div class="input-area">
-                            <textarea id="editor-input" placeholder="Enter your code here", spellcheck="false" oninput="Editor.onTextChanged()"></textarea>
-                            <div id="editor-overlay"></div>
-                        </div>
+                    <div class="input-area">
+                        <textarea id="editor-input" placeholder="Enter your code here" spellcheck="false" oninput="Editor.onTextChanged()"></textarea>
+                        <div id="editor-overlay"></div>
                     </div>
                 </div>
             </div>
             <div class="footer">
-
             </div>
         </div>
     </body>

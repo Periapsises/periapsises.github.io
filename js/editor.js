@@ -37,6 +37,7 @@ class Editor {
 
 function onWindowLoaded() {
     Editor.newTab('Default');
+
     Editor.input.addEventListener('keydown', function(e) {
         if (e.ctrlKey && e.key === 's') {
             e.preventDefault();
@@ -46,7 +47,7 @@ function onWindowLoaded() {
             document.execCommand('insertText', false, '    ');
             Editor.onTextChanged();
 
-            e.preventDefault();
+            e.preventDefault('open_node', 'branch1');
         }
     });
 }

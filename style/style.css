@@ -21,8 +21,10 @@ html, body {
 .container {
     flex: 1 1 auto;
     display: flex;
-    flex-flow: row;
+    flex-flow: column;
     background-color: #101010;
+    border-left-style: solid;
+    border-left-color: #60319e;
 }
 
 .footer {
@@ -30,27 +32,7 @@ html, body {
     background-color: #aa80e2;
 }
 
-/* Container */
-
-.file-browser {
-    flex: 0 1 20%;
-    background-color: #1c1c1c;
-}
-
-.code-window {
-    flex: 1 1 auto;
-    display: flex;
-    flex-flow: column;
-    border-left-style: solid;
-    border-left-color: #60319e;
-}
-
 /* Code Window */
-
-.buttons {
-    flex: 0 1 32px;
-    background-color: #525252;
-}
 
 .tabs {
     flex: 0 1 32px;
@@ -150,41 +132,4 @@ html, body {
     color: #ffffff;
     border: 2px solid #aa80e2;
     border-bottom-style: hidden;
-}
-
-.comment {
-    color: #808080;
-    font-style: italic;
-}
-
-.preprocessor {
-    color: rgb(255, 253, 159);
-}
-
-.directive {
-    color: #8bd4ff;
-}
-
-.argument {
-    color: #c8aaff;
-}
-
-.label {
-    color: #ffaf81;
-}
-
-.instruction {
-    color: #71bbff;
-}
-
-.string-quote {
-    color: #76ff53;
-}
-
-.string-text {
-    color: #beff93;
-}
-
-.string-escape {
-    color: #fff78e;
 }
