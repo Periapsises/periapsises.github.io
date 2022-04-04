@@ -13,8 +13,8 @@
 .identifier.instruction { color: #64b4ff }
 .identifier.operand { color: #c8aaff }
 
-.number { color: #ff6e64; }
-.number.format { color: #ff64a5; }
+.number { color: #ff6464; }
+.number.format { color: #ff6464; }
 
 .control { color: #fff; }
 

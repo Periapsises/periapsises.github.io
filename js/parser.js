@@ -18,7 +18,8 @@ class Parser {
             { token: 'decorator.whitespace', regex: /^ +/is }
         ],
         'operands': [
-            { token: 'string.quote', regex: /^"/is, state: 'string' },
+            { token: 'string.quote', regex: /^"/is, state: 'string.dquote' },
+            { token: 'string.quote', regex: /^'/is, state: 'string.squote' },
             { token: 'identifier.operand', regex: /^[a-z]+/is },
             { token: 'number.format.bin', regex: /^0b[01]+/is },
             { token: 'number.format.dec', regex: /^0d[0-9]+/is },
@@ -31,10 +32,15 @@ class Parser {
             { token: 'control.newline', regex: /^\n+/is, state: 'last' },
             { token: 'decorator.whitespace', regex: /^ +/is }
         ],
-        'string': [
-            { token: 'string.text', regex: /^[^"\\]/is },
+        'string.dquote': [
+            { token: 'string.text', regex: /^[^"\n\\]/is },
             { token: 'string.escape', regex: /^\\./is },
-            { token: 'string.quote', regex: /^"/is, state: 'last' }
+            { token: 'string.quote', regex: /^["\n]/is, state: 'last' }
+        ],
+        'string.squote': [
+            { token: 'string.text', regex: /^[^'\n\\]/is },
+            { token: 'string.escape', regex: /^\\./is },
+            { token: 'string.quote', regex: /^['\n]/is, state: 'last' }
         ]
     }
 
