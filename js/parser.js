@@ -5,6 +5,7 @@ const common = [
     { token: 'number.format.dec', regex: /^0d[0-9]+/is },
     { token: 'number.format.hex', regex: /^0[hx][0-9a-f]+/is },
     { token: 'number.decimal', regex: /^[0-9]+/is },
+    { token: 'control.hash', regex: /^#/is },
     { token: 'control.paren.left', regex: /^\(/is },
     { token: 'control.paren.right', regex: /^\)/is },
     { token: 'control.colon', regex: /^:/is },
