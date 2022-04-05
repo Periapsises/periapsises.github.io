@@ -2,134 +2,67 @@ html, body {
     margin: 0px;
     width: 100%;
     height: 100%;
+    background-color: #111;
+    overflow: hidden;
 }
-
-/* Main window */
 
 .editor {
+    display: flex;
+    flex-flow: row;
     width: 100%;
     height: 100%;
-    display: flex;
-    flex-flow: column;
-}
-
-.header {
-    flex: 0 1 64px;
-    background-color: #aa80e2;
-}
-
-.container {
-    flex: 1 1 auto;
-    display: flex;
-    flex-flow: column;
-    background-color: #101010;
     border-left-style: solid;
-    border-left-color: #60319e;
-}
-
-.footer {
-    flex: 0 1 32px;
-    background-color: #aa80e2;
-}
-
-/* Code Window */
-
-.tabs {
-    flex: 0 1 32px;
-    display: flex;
-    flex-flow: row;
-    padding-top: 8px;
-    background-color: #1d1d1d;
-    border-bottom-style: solid;
-    border-bottom-width: 1px;
-    border-bottom-color: #525252;
-}
-
-.code-area {
-    flex: 1 1 auto;
-    display: flex;
-    flex-flow: row;
+    border-width: 4px;
+    border-color: #c379ff;
     font-family: 'Courier New', Courier, monospace;
     font-size: 12pt;
 }
 
-/* Code area */
-
 .gutter {
-    flex: 0 1 60px;
+    flex: 0 1 64px;
     display: flex;
     flex-flow: column;
-    background-color: #222222;
-    color: #ffffff;
-    border-right-style: solid;
-    border-right-width: 1px;
-    border-color: #cecece;
     text-align: right;
     padding-right: 4px;
+    background-color: #222;
+    color: #fff;
+    border-right: 1px solid #fff;
 }
 
-.input-area {
+.container {
     flex: 1 1 auto;
     position: relative;
     overflow: hidden;
 }
 
-.input-area textarea {
-    border: none;
-    resize: none;
-    width: 100%;
-    height: 100%;
-    background-color: #0000;
-    padding: 0px;
-    font-family: inherit;
-    font-size: inherit;
-}
-
-#editor-input, #editor-overlay {
+.input {
     position: absolute;
-    width: 100%;
-    height: 100%;
     top: 0;
     left: 0;
-    padding-left: 4px;
-    background-color: #0000;
-    color: #0000;
-    caret-color: #ffffffff;
-}
-
-#editor-input::selection {
-    background-color: #82d1ff70;
-    color: #0000;
-}
-
-#editor-overlay {
-    pointer-events: none;
-}
-
-#editor-overlay pre {
-    display: inline;
-    font-family: inherit;
-    font-size: inherit;
-}
-
-#text-input {
-    width: 100%;
-    height: 100%;
     border: none;
     resize: none;
+    outline: none;
+    background-color: #0000;
+    color: #0000;
+    caret-color: #fff;
+    font-family: inherit;
+    font-size: inherit;
+    width: 100%;
+    height: 100%;
+    padding: 0px;
 }
 
-/* Tabs */
+.input::selection {
+    background-color: #82d1ff;
+}
 
-.tab {
-    flex: 1 1 auto;
-    max-width: 128px;
-    margin-left: 8px;
-    text-align: center;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 10pt;
-    background-color: #666666;
-    color: #ffffff;
-    border: 2px solid #aa80e2;
-    border-bottom-style: hidden;
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0px;
+    display: inline;
+    pointer-events: none;
+    font-family: inherit;
+    font-size: inherit;
 }

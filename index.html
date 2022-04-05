@@ -14,23 +14,11 @@
 </head>
 
 <body>
-    <div class="editor">
-        <div class="header">
-        </div>
-        <div class="container">
-            <div id="tab-container" class="tabs">
-            </div>
-            <div id="editor-container" class="code-area">
-                <div id="editor-gutter" class="gutter">
-                </div>
-                <div class="input-area">
-                    <textarea id="editor-input" placeholder="Enter your code here" spellcheck="false"
-                        oninput="Editor.onTextChanged()"></textarea>
-                    <div id="editor-overlay"></div>
-                </div>
-            </div>
-        </div>
-        <div class="footer">
+    <div id="editor" class="editor">
+        <div id="gutter" class="gutter"></div>
+        <div id="container" class="container">
+            <textarea id="input" class="input" spellcheck="false" oninput="Editor.onTextChanged()"></textarea>
+            <pre id="overlay" class="overlay"></pre>
         </div>
     </div>
 </body>

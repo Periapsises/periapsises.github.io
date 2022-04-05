@@ -99,17 +99,14 @@ class Parser {
 
     static setHighlight(element) {
         const tokens = this.getTokens();
-
-        const container = document.createElement('pre');
         element.innerHTML = '';
-        element.appendChild(container);
 
         for (let token of tokens) {
             const child = document.createElement('span');
             child.className = token.type.replaceAll('.', ' ');
             child.innerHTML = token.value;
 
-            container.appendChild(child);
+            element.appendChild(child);
         }
     }
 }
