@@ -1,4 +1,5 @@
 import { Parser } from './parser.js'
+import { Lua } from './lua.js'
 
 let defaultCode = "/*\n    Simple Hello World program\n    Uses the io library\n*/\n\n#include io\n\nstart:\n    lda #message\n    pha\n    jsr print\n    jmp (end)\n\n// We can use labels to point to data\nmessage:\n    .db \"Hello, world!\\n\", 0x00\n\nend:\n    jmp (end)\n";
 
@@ -38,6 +39,8 @@ function onWindowLoaded() {
 
     Editor.input.addEventListener('keydown', function(e) {
         if (e.ctrlKey && e.key === 's') {
+            Lua.save(Editor.input.value);
+
             e.preventDefault();
         }
 
