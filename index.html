@@ -15,10 +15,13 @@
 
 <body>
     <div id="editor" class="editor">
-        <div id="gutter" class="gutter"></div>
-        <div id="container" class="container">
-            <textarea id="input" class="input" spellcheck="false" oninput="Editor.onTextChanged()"></textarea>
-            <pre id="overlay" class="overlay"></pre>
+        <div id="scroller" class="scroller">
+            <div id="gutter" class="gutter"></div>
+            <div id="container" class="container">
+                <textarea id="input" class="input" placeholder="Enter your code here" spellcheck="false"
+                    oninput="Editor.onTextChanged()"></textarea>
+                <pre id="overlay" class="overlay"></pre>
+            </div>
         </div>
     </div>
 </body>

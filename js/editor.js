@@ -3,10 +3,15 @@ import { Parser } from './parser.js'
 let defaultCode = "/*\n    Simple Hello World program\n    Uses the io library\n*/\n\n#include io\n\nstart:\n    lda #message\n    pha\n    jsr print\n    jmp (end)\n\n// We can use labels to point to data\nmessage:\n    .db \"Hello, world!\\n\", 0x00\n\nend:\n    jmp (end)\n";
 
 class Editor {
+    static editor = document.getElementById('editor');
     static gutter = document.getElementById('gutter');
-    static container = document.getElementById('container');
     static input = document.getElementById('input');
     static overlay = document.getElementById('overlay');
+
+    static setDefaultCode() {
+        this.input.innerHTML = defaultCode;
+        this.onTextChanged();
+    }
 
     static onTextChanged() {
         Parser.setText(this.input.value);
@@ -24,13 +29,12 @@ class Editor {
     }
 
     static setFontSize(size) {
-        this.container.style.fontSize = size + 'pt';
+        this.editor.style.fontSize = size + 'pt';
     }
 }
 
 function onWindowLoaded() {
-    Editor.input.innerHTML = defaultCode;
-    Editor.onTextChanged();
+    Editor.setDefaultCode();
 
     Editor.input.addEventListener('keydown', function(e) {
         if (e.ctrlKey && e.key === 's') {
