@@ -9,9 +9,13 @@ class Editor {
     static input = document.getElementById('input');
     static overlay = document.getElementById('overlay');
 
-    static setDefaultCode() {
-        this.input.innerHTML = defaultCode;
+    static setCode(code) {
+        this.input.innerHTML = code;
         this.onTextChanged();
+    }
+
+    static setDefaultCode() {
+        this.setCode(defaultCode);
     }
 
     static onTextChanged() {
