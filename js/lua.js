@@ -1,6 +1,6 @@
 const handler = {
     get(target, prop, receiver) {
-        if (GLua != null && prop in GLua) return GLua[prop];
+        if (typeof GLua !== 'undefined' && prop in GLua) return GLua[prop];
 
         return () => {};
     }
