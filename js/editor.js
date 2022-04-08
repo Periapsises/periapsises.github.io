@@ -1,5 +1,4 @@
 import { Parser } from './parser.js'
-import { Lua } from './lua.js'
 
 String.prototype.getHash = function () {
     var hash = 0, i, chr;
@@ -62,7 +61,7 @@ function onWindowLoaded() {
 
     Editor.input.addEventListener('keydown', function (e) {
         if (e.ctrlKey && e.key === 's') {
-            Lua.save(Editor.input.value);
+            Lua.onSave(Editor.input.value);
 
             e.preventDefault();
         }
