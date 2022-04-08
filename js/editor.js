@@ -1,6 +1,17 @@
 import { Parser } from './parser.js'
 import { Lua } from './lua.js'
 
+String.prototype.getHash = function () {
+    var hash = 0, i, chr;
+    if (this.length === 0) return hash;
+    for (i = 0; i < this.length; i++) {
+        chr = this.charCodeAt(i);
+        hash = ((hash << 5) - hash) + chr;
+        hash |= 0; // Convert to 32bit integer
+    }
+    return hash;
+};
+
 let defaultCode = "/*\n    Simple Hello World program\n    Uses the io library\n*/\n\n#include io\n\nstart:\n    lda #message\n    pha\n    jsr print\n    jmp (end)\n\n// We can use labels to point to data\nmessage:\n    .db \"Hello, world!\\n\", 0x00\n\nend:\n    jmp (end)\n";
 
 class Editor {
@@ -10,6 +21,8 @@ class Editor {
     static overlay = document.getElementById('overlay');
 
     static setCode(code) {
+        this.hash = code.getHash()
+
         this.input.innerHTML = code;
         this.onTextChanged();
     }
@@ -19,10 +32,12 @@ class Editor {
     }
 
     static onTextChanged() {
-        Parser.setText(this.input.value);
+        const text = this.input.value;
+
+        Parser.setText(text);
         Parser.setHighlight(this.overlay);
 
-        let lineCount = this.input.value.split('\n').length;
+        let lineCount = text.split('\n').length;
         this.gutter.innerHTML = '';
 
         for (let i = 1; i <= lineCount; i++) {
@@ -31,6 +46,10 @@ class Editor {
 
             this.gutter.appendChild(line);
         }
+
+        this.changed = text.getHash() == this.hash;
+
+        Lua.onTextChanged( text, this.changed )
     }
 
     static setFontSize(size) {
@@ -41,7 +60,7 @@ class Editor {
 function onWindowLoaded() {
     Editor.setDefaultCode();
 
-    Editor.input.addEventListener('keydown', function(e) {
+    Editor.input.addEventListener('keydown', function (e) {
         if (e.ctrlKey && e.key === 's') {
             Lua.save(Editor.input.value);
 
