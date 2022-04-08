@@ -40,7 +40,7 @@ class Editor {
             this.gutter.appendChild(line);
         }
 
-        this.changed = text.getHash() == this.hash;
+        this.changed = text.getHash() != this.hash;
 
         Lua.onTextChanged( text, this.changed )
     }
@@ -53,6 +53,7 @@ class Editor {
 function onWindowLoaded() {
     Editor.input.addEventListener('keydown', function (e) {
         if (e.ctrlKey && e.key === 's') {
+            Editor.hash = Editor.input.value.getHash()
             Lua.onSave(Editor.input.value);
 
             e.preventDefault();
