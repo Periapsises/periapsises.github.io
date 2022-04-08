@@ -1,4 +1,5 @@
 import { Parser } from './parser.js'
+import { Lua } from './lua.js'
 
 String.prototype.getHash = function () {
     var hash = 0, i, chr;
