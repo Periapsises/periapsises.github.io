@@ -1,6 +1,8 @@
 const handler = {
     get(target, prop, receiver) {
-        return prop in target ? target[prop] : () => {};
+        if (GLua && prop in GLua) return GLua[prop];
+
+        return () => {};
     }
 }
 
