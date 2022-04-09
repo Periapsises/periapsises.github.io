@@ -21,7 +21,7 @@ class Editor {
     static setCode(code) {
         this.hash = code.getHash()
 
-        this.input.innerHTML = code;
+        this.input.value = code;
         this.onTextChanged();
     }
 
