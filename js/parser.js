@@ -109,16 +109,6 @@ class Parser {
             element.appendChild(child);
         }
     }
-
-    static luaGetTokens() {
-        const tokens = this.getTokens();
-
-        for (let token of tokens) {
-            console.log( `RUNLUA:Mos.Javascript:AddToken( "${token.type}", [[${token.value}]] )` );
-        }
-
-        console.log( `RUNLUA:Mos.Javascript:FinishTokens()` );
-    }
 }
 
 export { Parser };

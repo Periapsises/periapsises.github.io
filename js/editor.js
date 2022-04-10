@@ -70,5 +70,4 @@ function onWindowLoaded() {
 }
 
 window.Editor = Editor;
-window.Parser = Parser;
 window.addEventListener('load', onWindowLoaded)
