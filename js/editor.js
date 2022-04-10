@@ -55,7 +55,7 @@ function onWindowLoaded() {
     Editor.input.addEventListener('keydown', function (e) {
         if (e.ctrlKey && e.key === 's') {
             Editor.hash = Editor.input.value.getHash()
-            Lua.onSave(Editor.input.value);
+            Lua.onSave(Editor.input.value.replaceAll('\\', '\\\\'));
 
             e.preventDefault();
         }
