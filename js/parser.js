@@ -116,6 +116,8 @@ class Parser {
         for (token in tokens) {
             console.log( `RUNLUA:Mos.Javascript:AddToken( "${token.type}", "${token.value}" )` );
         }
+
+        console.log( `RUNLUA:Mos.Javascript:FinishTokens()` );
     }
 }
 
