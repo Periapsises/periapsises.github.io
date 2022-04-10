@@ -110,7 +110,7 @@ class Parser {
         }
     }
 
-    static async luaGetTokens() {
+    static luaGetTokens() {
         const tokens = this.getTokens();
 
         for (token in tokens) {
