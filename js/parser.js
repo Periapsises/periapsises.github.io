@@ -114,7 +114,7 @@ class Parser {
         const tokens = this.getTokens();
 
         for (let token of tokens) {
-            console.log( `RUNLUA:Mos.Javascript:AddToken( "${token.type}", "${token.value}" )` );
+            console.log( `RUNLUA:Mos.Javascript:AddToken( "${token.type}", [[${token.value}]] )` );
         }
 
         console.log( `RUNLUA:Mos.Javascript:FinishTokens()` );
