@@ -67,6 +67,8 @@ function onWindowLoaded() {
             e.preventDefault('open_node', 'branch1');
         }
     });
+
+    Editor.onTextChanged();
 }
 
 window.Editor = Editor;
