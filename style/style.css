@@ -18,9 +18,6 @@ html, body {
     display: flex;
     flex-flow: row;
     background-color: #0e1112;
-    border-left-style: solid;
-    border-left-color: #60319e;
-    border-left-width: 1px;
 }
 
 .gutter {
@@ -64,7 +61,7 @@ html, body {
 }
 
 .input::selection {
-    background-color: #2d4958;
+    background-color: #3a5d70;
     color: #0000;
 }
 
