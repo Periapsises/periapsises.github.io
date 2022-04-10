@@ -113,7 +113,7 @@ class Parser {
     static luaGetTokens() {
         const tokens = this.getTokens();
 
-        for (token in tokens) {
+        for (let token of tokens) {
             console.log( `RUNLUA:Mos.Javascript:AddToken( "${token.type}", "${token.value}" )` );
         }
 
