@@ -17,16 +17,17 @@ html, body {
     flex: 1 1 auto;
     display: flex;
     flex-flow: row;
-    background-color: #101010;
+    background-color: #0e1112;
     border-left-style: solid;
     border-left-color: #60319e;
+    border-left-width: 1px;
 }
 
 .gutter {
     flex: 0 1 60px;
     display: flex;
     flex-flow: column;
-    background-color: #222222;
+    background-color: #0e1112;
     color: #fff;
     text-align: right;
     padding-right: 4px;
@@ -72,7 +73,4 @@ html, body {
     display: inline;
     font-family: inherit;
     font-size: inherit;
-    border-left-style: solid;
-    border-left-width: 1px;
-    border-color: #cecece;
 }
