@@ -31,7 +31,7 @@ class Editor {
         Parser.setText(text);
         Parser.setHighlight(this.overlay);
 
-        let lineCount = text.split('\n').length;
+        let lineCount = Math.max(text.split('\n').length, 1);
         this.gutter.innerHTML = '';
 
         for (let i = 1; i <= lineCount; i++) {
