@@ -1,0 +1,87 @@
+html, body {
+    margin: 0px;
+    height: 100%;
+}
+
+body {
+    background-image: url('assets/background.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-flow: row;
+}
+
+h1, h2, h3, p {
+    color: rgb(255, 255, 255);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.profile-pic {
+    width: 256px;
+    height: 256px;
+    margin: 32px;
+    border-radius: 32px 64px;
+}
+
+.text-area {
+    margin-top: 64px;
+    overflow: hidden;
+}
+
+.text-area h2 {
+    color:rgb(255, 241, 110);
+    text-shadow: 0 0 6px rgba(255, 241, 110, 50);
+    animation-duration: 1s;
+    animation-name: slidein;
+}
+
+.text-area h3 {
+    color:rgb(255, 246, 167);
+    text-shadow: 0 0 6px rgba(255, 246, 167, 50);
+    animation-duration: 1s;
+    animation-delay: 0.25s;
+    animation-name: slidein;
+    animation-fill-mode: forwards;
+    margin-left: -100%;
+}
+
+@keyframes slidein {
+    from {
+        margin-left: -100%;
+    }
+
+    to {
+        margin-left: 0%;
+    }
+}
+
+.profile {
+    display: flex;
+    flex-flow: column;
+}
+
+.folder {
+    width: 32px;
+    height: 32px;
+}
+
+.file-list {
+    margin-left: 32px;
+    margin-top: 32px;
+    display: flex;
+    flex-flow: column;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.item {
+    margin-left: 16px;
+    padding-left: 16px;
+    border-left-style: solid;
+    border-color: #fff;
+    border-width: 1px;
+    color: rgb(221, 214, 158);
+}
+
+.item:hover {
+    color: #fff;
+}
