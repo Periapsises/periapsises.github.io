@@ -60,6 +60,10 @@ h1, h2, h3, p {
     flex-flow: column;
 }
 
+.file-browser {
+    margin-left: 32px;
+}
+
 .folder {
     width: 100%;
 }
