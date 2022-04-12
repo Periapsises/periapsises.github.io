@@ -30,15 +30,15 @@ h1, h2, h3, p {
 }
 
 .text-area h2 {
-    color:rgb(255, 241, 110);
-    text-shadow: 0 0 6px rgba(255, 241, 110, 50);
+    color:rgb(156, 129, 255);
+    text-shadow: 0 0 6px rgba(156, 129, 255, 50);
     animation-duration: 1s;
     animation-name: slidein;
 }
 
 .text-area h3 {
-    color:rgb(255, 246, 167);
-    text-shadow: 0 0 6px rgba(255, 246, 167, 50);
+    color:rgb(201, 167, 255);
+    text-shadow: 0 0 6px rgba(201, 167, 255, 50);
     animation-duration: 1s;
     animation-delay: 0.25s;
     animation-name: slidein;
@@ -116,7 +116,7 @@ h1, h2, h3, p {
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    color: rgb(255, 246, 167);
+    color: rgb(156, 129, 255);
 }
 
 .link:hover {
