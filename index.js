@@ -13,6 +13,7 @@ function processItem(item) {
     icon.setAttribute('src', iconPath)
 
     let name = document.createElement('a');
+    name.className = 'name'
     name.innerHTML = item.getAttribute('name');
 
     if (item.getAttribute('link') != null) {
