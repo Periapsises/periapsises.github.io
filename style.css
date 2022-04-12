@@ -61,27 +61,59 @@ h1, h2, h3, p {
 }
 
 .folder {
+    width: 100%;
+}
+
+.subfolder {
+    display: flex;
+    flex-flow: row;
+}
+
+.subfolder .folder {
+    margin-left: 8px;
+}
+
+.subfolder-links {
+    width: 32px;
+    display: flex;
+    flex-flow: column;
+}
+
+.subfolder-top-link {
     width: 32px;
     height: 32px;
 }
 
-.file-list {
-    margin-left: 32px;
-    margin-top: 32px;
-    display: flex;
-    flex-flow: column;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+.subfolder-bottom-link {
+    width: 32px;
+    height: 100%;
 }
 
 .item {
-    margin-left: 16px;
-    padding-left: 16px;
-    border-left-style: solid;
-    border-color: #fff;
-    border-width: 1px;
-    color: rgb(221, 214, 158);
+    flex: 1 1 auto;
+    display: flex;
+    flex-flow: row;
+    height: 32px;
+    position: relative;
 }
 
-.item:hover {
-    color: #fff;
+.item img {
+    width: 32px;
+    height: 32px;
+}
+
+.item a {
+    flex: 1 1 auto;
+    margin: 0px;
+    margin-left: 42px;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: rgb(255, 246, 167);
+}
+
+.link:hover {
+    color:rgb(255, 255, 255);
 }
