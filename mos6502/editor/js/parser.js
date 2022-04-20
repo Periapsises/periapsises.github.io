@@ -26,6 +26,8 @@ const states = {
     'operands': [
         { token: 'identifier.operand', regex: /^[a-z]+/is },
         { token: 'control.newline', regex: /^\n+/is, state: 'last' },
+        { token: 'preprocessor.comment', regex: /^\/\/[^\n]*/is, state: 'last' },
+        { token: 'preprocessor.comment', regex: /^\/\*.*?\*\//is, state: 'last' },
         { token: 'decorator.whitespace', regex: /^ +/is }
     ],
     'string.dquote': [
