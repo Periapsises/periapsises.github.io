@@ -1,4 +1,4 @@
-import { Parser } from './parser.js'
+import { Lexer } from './lexer.js'
 import { Lua } from './lua.js'
 
 String.prototype.getHash = function () {
@@ -28,8 +28,8 @@ class Editor {
     static onTextChanged() {
         const text = this.input.value;
 
-        Parser.setText(text);
-        Parser.setHighlight(this.overlay);
+        Lexer.setText(text);
+        Lexer.setHighlight(this.overlay);
 
         let lineCount = Math.max(text.split('\n').length, 1);
         this.gutter.innerHTML = '';

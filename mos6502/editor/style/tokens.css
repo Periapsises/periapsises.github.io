@@ -1,6 +1,7 @@
-.preprocessor { color: #fffd9f }
-.preprocessor.directive { color: #a1ecff }
-.preprocessor.comment {
+.directive { color: #fffd9f }
+.directive.dot { color: #a1ecff }
+
+.comment {
     color: #808080;
     font-style: italic;
 }
@@ -9,13 +10,15 @@
 .string.text { color: #bfff94; }
 .string.escape { color: #fff78e }
 
-.identifier.label { color: #ffa37e }
-.identifier.instruction { color: #64b4ff }
-.identifier.operand { color: #c8aaff }
+.instruction { color: #64b4ff }
+.label { color: #ffa37e }
+
+.operand.identifier { color: #c8aaff }
+.operand.register { color: #c8aaff }
+
+.operator { color: #fff; }
+.control { color: #fff; }
 
 .number { color: #ff6464; }
-.number.format { color: #ff6464; }
-
-.control { color: #fff; }
 
 .text { color: #fff; }

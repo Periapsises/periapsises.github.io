@@ -1,34 +1,35 @@
 const common = [
     { token: 'string.quote', regex: /^"/is, state: 'string.dquote' },
     { token: 'string.quote', regex: /^'/is, state: 'string.squote' },
-    { token: 'number.format.bin', regex: /^0b[01]+/is },
-    { token: 'number.format.dec', regex: /^0d[0-9]+/is },
-    { token: 'number.format.hex', regex: /^0[hx][0-9a-f]+/is },
+    { token: 'number.binary', regex: /^0b[01]+/is },
+    { token: 'number.decimal', regex: /^0d[0-9]+/is },
+    { token: 'number.hexadecimal', regex: /^0[hx][0-9a-f]+/is },
     { token: 'number.decimal', regex: /^[0-9]+/is },
+    { token: 'operator', regex: /^[\+\-\*\/]/is },
     { token: 'control.hash', regex: /^#/is },
     { token: 'control.paren.left', regex: /^\(/is },
     { token: 'control.paren.right', regex: /^\)/is },
     { token: 'control.colon', regex: /^:/is },
     { token: 'control.comma', regex: /^,/is },
+    { token: 'decorator.whitespace', regex: /^ +/is }
 ]
 
 const states = {
     'initial': [
-        { token: 'identifier.label', regex: /^[\._a-z][_a-z0-9]*?(?=:)/is },
-        { token: 'identifier.instruction', regex: /^[a-z]+/is, state: 'operands' },
-        { token: 'preprocessor', regex: /^#[^ \n]+/is, state: 'operands' },
-        { token: 'preprocessor.directive', regex: /^\.[^ \n]+/is, state: 'operands' },
-        { token: 'preprocessor.comment', regex: /^\/\/[^\n]*/is },
-        { token: 'preprocessor.comment', regex: /^\/\*.*?\*\//is },
-        { token: 'control.newline', regex: /^\n+/is },
-        { token: 'decorator.whitespace', regex: /^ +/is }
+        { token: 'comment.line', regex: /^\/\/[^\n]*/is },
+        { token: 'comment.block', regex: /^\/\*.*?(\*\/|$)/is },
+        { token: 'label', regex: /^[_a-z][_\.\w]*:/is },
+        { token: 'instruction', regex: /^[a-z]{1,3}/is, state: 'operands' },
+        { token: 'directive.hash', regex: /^#[^ \n]+/is, state: 'operands' },
+        { token: 'directive.dot', regex: /^\.[^ \n]+/is, state: 'operands' },
+        { token: 'control.newline', regex: /^\n+/is }
     ],
     'operands': [
-        { token: 'identifier.operand', regex: /^[a-z]+/is },
+        { token: 'operand.register', regex: /^[xya]/is },
+        { token: 'operand.identifier', regex: /^[_a-z][_\.\w]*/is },
         { token: 'control.newline', regex: /^\n+/is, state: 'last' },
-        { token: 'preprocessor.comment', regex: /^\/\/[^\n]*/is, state: 'last' },
-        { token: 'preprocessor.comment', regex: /^\/\*.*?\*\//is, state: 'last' },
-        { token: 'decorator.whitespace', regex: /^ +/is }
+        { token: 'comment.line', regex: /^\/\/[^\n]*/is, state: 'last' },
+        { token: 'comment.block', regex: /^\/\*.*?(\*\/|$)/is, state: 'last' }
     ],
     'string.dquote': [
         { token: 'string.text', regex: /^[^"\n\\]/is },
@@ -45,7 +46,7 @@ const states = {
 Array.prototype.push.apply(states.initial, common);
 Array.prototype.push.apply(states.operands, common);
 
-class Parser {
+class Lexer {
     static changed = true;
     static text = ''
 
@@ -113,4 +114,4 @@ class Parser {
     }
 }
 
-export { Parser };
+export { Lexer };
