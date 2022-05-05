@@ -54,5 +54,5 @@ a:visited {
     background-color: #666;
     border-color: #ccc;
     border-width: 1px;
-    border-top-style: solid;
+    border-bottom-style: solid;
 }
