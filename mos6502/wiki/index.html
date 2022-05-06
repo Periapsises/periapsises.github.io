@@ -11,40 +11,44 @@
 </head>
 
 <body>
-    <div class="header">
+    <div class="header row border">
         <a href="/mos6502/wiki">Mos6502 Wiki</a>
         <a href="/mos6502/wiki/api">Api Docs</a>
         <a href="/mos6502/wiki/usage">Addon Usage</a>
     </div>
 
-    <img src="/assets/mos_workshop_icon.jpg" alt="Mos6502 Logo">
+    <img src="/assets/mos_workshop_icon.jpg" alt="Mos6502 Logo" class="border">
 
-    <div class="item">
-        <div style="flex: 0 1 50%; padding: 16px; text-align: center;">
-            <h2>This addon is on the workshop!</h2>
-            <p>It should be updated often to match the GitHub version</p>
+    <div class="row border padding">
+        <div class="buttons item" style="flex: 0 1 50%; text-align: center;">
+            <h1>To view how the addon works</h1>
+            <a href="/mos6502/wiki/api">Api Documentation</a>
         </div>
-        <div class="workshop">
-            <h1><span>Subscribe to download</span><br>Mos 6502 Processor</h1>
-            <div>
-                <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2796090775" target="_blank">
-                    <div class="subscribe-icon"></div>
-                    <span class="subscribe-text">
-                        Subscribe
-                    </span>
-                </a>
-            </div>
+        <div class="buttons item" style="flex: 1 1 auto; text-align: center;">
+            <h1>To learn how to use the addon</h1>
+            <a href="/mos6502/wiki/usage">Addon Usage</a>
         </div>
     </div>
 
-    <div class="item">
-        <div class="buttons" style="flex: 0 1 50%; text-align: center;">
-            <h2>To view how the addon works</h2>
-            <a href="/mos6502/wiki/api">Api Documentation</a>
+    <div class="row padding">
+        <div class="item" style="flex: 0 1 50%; text-align: center;">
+            <h1>Have questions, problems or just want to talk?</h1>
+            <h2>Join the Discord, I'd be happy to help</h2>
+            <iframe src="https://canary.discord.com/widget?id=961793513220079686&theme=dark"width="350" height="350" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
         </div>
-        <div class="buttons" style="flex: 1 1 auto; text-align: center;">
-            <h2>To learn how to use the addon</h2>
-            <a href="/mos6502/wiki/usage">Addon Usage</a>
+
+        <div class="item" style="flex: 1 1 auto;">
+            <h1>The addon is available on the workshop</h1>
+            <h2>I'll keep it up to date with the GitHub version</h2>
+            <div class="subscribe">
+                <h1><span class="h1-small">Subscribe to download</span><br>Mos 6502 Processor</h1>
+                <div>
+                    <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2796090775" target="_blank">
+                        <div class="button-icon"></div>
+                        <span class="button-text">Subscribe</span>
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
 </body>

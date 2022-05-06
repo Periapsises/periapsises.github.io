@@ -9,22 +9,41 @@ html, body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-body > * {
+body {
+    overflow: hidden auto;
+    color: #fff;
+}
+
+.padding {
+    padding: 16px;
+}
+
+.column {
+    display: flex;
+    flex-flow: column;
+}
+
+.row {
+    display: flex;
+    flex-flow: row;
+}
+
+.border {
     border-width: 1px;
     border-color: #ccc;
     border-bottom-style: solid;
 }
 
 .header {
+    top: 0;
+    position: -webkit-sticky;
+    position: sticky;
     padding: 8px;
 
     width: 100%;
     background-image: url("/assets/space.jpg");
     background-size: cover;
     background-repeat: no-repeat;
-
-    display: flex;
-    flex-flow: row;
 
     text-align: center;
     color: rgb(255, 255, 255);
@@ -55,11 +74,20 @@ img {
     height: auto;
 }
 
-.item {
-    display: flex;
-    flex-flow: row;
+.item > h1 {
+    font-size: 20px;
+    font-weight: bold;
+    color: #a3b1ff;
+}
+
+.item > h2 {
+    font-size: 14px;
+    font-weight: 300;
     color: #fff;
-    padding: 16px;
+}
+
+.item > h1, h2 {
+    text-align: center;
 }
 
 .buttons a {
@@ -74,68 +102,76 @@ img {
     font-size: 20px;
 }
 
-.workshop {
+.subscribe {
     display: flex;
     position: relative;
     padding: 16px;
+    margin-left: auto;
+    margin-right: auto;
     width: fit-content;
+    height: fit-content;
     min-height: 32px;
+
+    color: #fff;
     background-color: #171a21;
     border: 1px solid #35465e;
+    font-family: 'Motiva Sans', Arial, Helvetica, sans-serif;
 }
 
-.workshop > h1 {
+.subscribe h1 {
+    width: 350px;
+    line-height: 24px;
+
     margin: 0;
     font-size: 20px;
-    line-height: 30px;
-    color: white;
-    font-family: 'Motiva Sans', Arial, Helvetica, sans-serif;
     font-weight: bold;
-    width: 450px;
 }
 
-.workshop > h1 > span {
-    color: #5c8699;
-    font-size: 13px;
-    font-family: 'Motiva Sans', Arial, Helvetica, sans-serif;
-    font-weight: 300;
-}
-
-.workshop > div > a {
+.subscribe a {
+    display: inline-block;
     position: relative;
+    padding: 1px;
+
     border-radius: 4px;
     border: 2px solid #172030;
-    padding: 1px;
-    display: inline-block;
     cursor: pointer;
-    text-decoration: none !important;
+
     color: #d2e885;
-    font-family: 'Motiva Sans', Arial, Helvetica, sans-serif;
+    text-decoration: none !important;
+
     background: #a4d007;
     background: webkit linear-gradient( to bottom, #a4d007 5%, #536904 95%);
     background: linear-gradient( to bottom, #a4d007 5%, #536904 95%);
 }
 
-.workshop > div > a:hover {
+.subscribe a:hover {
     color: #fff;
     background: #b6d908;
     background: webkit linear-gradient( to bottom, #b6d908 5%, #80a006 95%);
     background: linear-gradient( to bottom, #b6d908 5%, #80a006 95%);
 }
 
-.subscribe-icon {
+.subscribe .h1-small {
+    margin: 0;
+    color: #5c8699;
+    font-size: 13px;
+    font-weight: 300;
+}
+
+.subscribe .button-text {
+    padding: 0 15px;
+    padding-left: 35px;
+    line-height: 30px;
+}
+
+.subscribe .button-icon {
     position: absolute;
     top: 0px;
     left: 8px;
     height: 30px;
     width: 16px;
+
     background-image: url('https://community.cloudflare.steamstatic.com/public/images/sharedfiles/ico_subscribe_tiled.png');
     background-position: 0px 0px;
     background-repeat: no-repeat;
-}
-
-.subscribe-text {
-    padding: 0 15px;
-    padding-left: 35px;
-    line-height: 30px;
 }
