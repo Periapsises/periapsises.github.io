@@ -1,21 +1,50 @@
-let path = 'Home'
+let path = ['Api', 'Home']
+const paths = {
+    'Api': {
+        'Home': '/index.md'
+    },
+    'Classes': [
+    ],
+    'Types': {
+        'Node': '/Node.md'
+    }
+}
 
-async function getFile(path) {
-    var response = await fetch('./contents/' + path + '.md');
+let docSection = null
+
+async function getCurrentFile() {
+    let file = path[1] == null ? '/index.md' : paths[path[0]][path[1]]
+    let filePath = './contents/' + path[0] + file
+
+    let response = await fetch(filePath);
 
     if (response.status != 200) {
         throw new Error('Server error');
     }
 
-    var data = await response.text();
+    let data = await response.text();
     return data;
 }
 
-async function onLoaded() {
-    const docSection = document.getElementById('markdown-docs');
-    var text = await getFile(path)
-
+async function updateLocation() {
+    let text = await getCurrentFile()
     docSection.innerHTML = marked.parse(text);
+}
+
+async function onLoaded() {
+    const params = new URLSearchParams(window.location.search);
+
+    if (params.has('category')) {
+        path[0] = params.get('category');
+        path[1] = null
+
+        if (params.has('section')) {
+            path[1] = params.get('section');
+        }
+    }
+
+    docSection = document.getElementById('docs-markdown');
+    updateLocation();
 }
 
 window.addEventListener('load', onLoaded);

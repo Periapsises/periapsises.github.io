@@ -9,6 +9,11 @@ html, body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
+.column {
+    display: flex;
+    flex-flow: column;
+}
+
 .header {
     padding: 8px;
 
