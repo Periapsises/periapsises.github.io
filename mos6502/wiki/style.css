@@ -175,3 +175,70 @@ img {
     background-position: 0px 0px;
     background-repeat: no-repeat;
 }
+
+.discord {
+    width: 256px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 24px;
+
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 12px;
+    border-color: #2c2f33;
+    background: #23272a;
+    background: webkit linear-gradient( to bottom, #23272a 60%, #35383d 100%);
+    background: linear-gradient( to bottom, #23272a 60%, #35383d 100% );
+    font-family: Whitney, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.discord > h1 {
+    margin-bottom: 8px;
+    text-align: left;
+    font-size: 16px;
+    color: #99aab5;
+}
+
+.discord .users {
+    margin-bottom: 16px;
+}
+
+.discord-user {
+    width: 100%;
+    height: 32px;
+}
+
+.discord-user img {
+    width: 24px;
+    height: 24px;
+    border-radius: 12px;
+    float: left;
+}
+
+.discord-user a {
+    margin-left: 8px;
+    margin-top: 2px;
+    font-size: 14px;
+    text-align: left;
+    float: left;
+}
+
+.discord-user p {
+    margin-top: 2px;
+    float: right;
+    font-size: 12px;
+    color: #99aab5;
+}
+
+.join-button {
+    background-color: #5865f2;
+    padding: 4px 16px 4px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    color: #fff !important;
+}
+
+.join-button:hover {
+    background-color: #57f287;
+}
