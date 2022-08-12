@@ -1,24 +1,23 @@
-.directive { color: #fffd9f }
-.directive.dot { color: #a1ecff }
+.directive { color: #c678dd }
 
 .comment {
-    color: #808080;
+    color: #7f848e;
     font-style: italic;
 }
 
-.string.quote { color: #76ff53 }
-.string.text { color: #bfff94; }
-.string.escape { color: #fff78e }
+.string.quote { color: #98c379 }
+.string.text { color: #98c379; }
+.string.escape { color: #56b6b2 }
 
-.instruction { color: #64b4ff }
-.label { color: #ffa37e }
+.instruction { color: #61afef }
+.label { color: #e06c75 }
 
 .operand.identifier { color: #c8aaff }
 .operand.register { color: #c8aaff }
 
-.operator { color: #fff; }
+.operator { color: #56b6c2; }
 .control { color: #fff; }
 
-.number { color: #ff6464; }
+.number { color: #d19a66; }
 
 .text { color: #fff; }

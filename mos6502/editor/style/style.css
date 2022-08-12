@@ -9,25 +9,29 @@ html, body {
     height: 100%;
     display: flex;
     flex-flow: column;
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 12pt;
+    font-family: 'JetBrains Mono';
+    font-size: 20px;
 }
 
 .scroller {
     flex: 1 1 auto;
     display: flex;
     flex-flow: row;
-    background-color: #0e1112;
+    background-color: #23272e;
 }
 
 .gutter {
     flex: 0 1 60px;
     display: flex;
     flex-flow: column;
-    background-color: #0e1112;
+    background-color: #23272e;
     color: #fff;
     text-align: right;
     padding-right: 4px;
+}
+
+.gutter span {
+    color: #495162;
 }
 
 .container {
@@ -61,8 +65,12 @@ html, body {
 }
 
 .input::selection {
-    background-color: #3a5d70;
+    background-color: #3d4556;
     color: #0000;
+}
+
+.input:focus {
+    outline: none !important;
 }
 
 .overlay {
