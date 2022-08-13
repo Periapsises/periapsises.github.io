@@ -10,10 +10,10 @@
 .string.escape { color: #56b6b2 }
 
 .instruction { color: #61afef }
-.label { color: #e06c75 }
+.label { color: #e5c07b }
 
-.operand.identifier { color: #c8aaff }
-.operand.register { color: #c8aaff }
+.operand.identifier { color: #e06c75 }
+.operand.register { color: #e06c75 }
 
 .operator { color: #56b6c2; }
 .control { color: #fff; }
