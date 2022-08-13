@@ -65,8 +65,7 @@ html, body {
 }
 
 .input::selection {
-    background-color: #3d4556;
-    color: #0000;
+    background-color: rgba(122, 138, 172, 0.25);
 }
 
 .input:focus {
