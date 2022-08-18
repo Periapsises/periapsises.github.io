@@ -19,7 +19,7 @@ const states = {
         { token: 'comment.line', regex: /^\/\/[^\n]*/is },
         { token: 'comment.block', regex: /^\/\*.*?(\*\/|$)/is },
         { token: 'label', regex: /^[_a-z][_\.\w]*:/is },
-        { token: 'instruction', regex: /^[a-z]{1,3}/is, state: 'operands' },
+        { token: 'instruction', regex: /^[a-z]+/is, state: 'operands' },
         { token: 'directive.hash', regex: /^#[^ \n]+/is, state: 'operands' },
         { token: 'directive.dot', regex: /^\.[^ \n]+/is, state: 'operands' },
         { token: 'control.newline', regex: /^\n+/is }
