@@ -3,38 +3,108 @@
 <html>
 
 <head>
-    <title>Periapsises</title>
+    <title>Periapsis</title>
 
     <meta property="og:type" content="website">
     <meta property="og:title" content="Periapsises">
-    <meta property="og:description" content="Hey, I'm Periapsises. I make stuff.">
+    <meta property="og:description" content="Hi, welcome to my site">
     <meta property="og:url" content="https://periapsises.github.io/">
     <meta property="og:image" content="https://github.com/Periapsises/periapsises.github.io/blob/main/assets/profile.jpg?raw=true">
-    <meta name="theme-color" data-reach-helmet="true" content="#a070ff">
+    <meta name="theme-color" data-reach-helmet="true" content="#61afef">
 
-    <link href="style.css" rel="stylesheet">
+    <style>
+        html, body {
+            margin: 0;
+            width: 100%;
+            height: 100%;
+        }
+        body {
+            background-color: #23272e;
+            background-image: url('assets/background.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
 
-    <script src="index.js" rel="text/javascript"></script>
+            display: flex;
+            flex-flow: row;
+            overflow: hidden;
+        }
+
+        div { margin: 16px; }
+        p {
+            margin: 0;
+            padding: 16px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 14pt;
+
+            color: white;
+        }
+
+        #profile {
+            border-radius: 128px;
+            box-shadow: 0px 0px 24px black;
+        }
+
+        #json {
+            max-width: 1024px;
+            
+            border-radius: 8px;
+            background-color: #23272e;
+            border: 1px solid #3e4452;
+
+            box-shadow: 0px 0px 24px black;
+        }
+
+        #header {
+            background-color: #1e2227;
+            border-radius: 8px 8px 0 0;
+            border-bottom-style: solid;
+            border-width: 1px;
+
+            color: #61afef;
+        }
+
+        a {
+            text-decoration: underline;
+        }
+
+        a:hover {
+            color: #61afef !important;
+        }
+
+        a:link, a:visited {
+            color: #98c379;
+        }
+    </style>
 </head>
 
 <body>
-    <div class="profile">
-        <img src="assets/profile.jpg" class="profile-pic">
-            <div class="file-browser">
-                <div class="folder" name="Periapsises">
-                    <div class="folder" name="Garry's Mod">
-                        <div class="item" name="Mos6502 Addon" link="https://github.com/Periapsises/Mos6502"></div>
-                        <div class="item" name="Mos6502 Editor" link="mos6502/editor/"></div>
-                        <div class="item" name="Mos6502 Wiki" link="mos6502/wiki/"></div>
-                    </div>
-                    <div class="item" name="GitHub" link="https://github.com/Periapsises"></div>
-                </div>
-            </div>
+    <div style="flex: 0 0 auto">
+        <div style="flex: 1 0 auto">
+            <img src="./assets/profile.jpg" id="profile" style="width: 256px; height: 256px;">
         </div>
     </div>
-    <div class="text-area">
-        <h2>Hi, I'm Periapsises</h2>
-        <h3>I like coding stuff and here I'm able to showcase what I've done.</h3>
+    <div style="flex: 1 0 auto;">
+        <div id="json">
+            <p id="header">profile/about.json</p>
+            <p>
+                {<br>
+                &emsp;<span style="color: #e06C75;">"name"</span>: <span style="color: #98c379;">"Periapsis"</span>,<br>
+                &emsp;<span style="color: #e06C75;">"aliases"</span>: [<span style="color: #98c379;">"Periapsises"</span>],<br>
+                &emsp;<span style="color: #e06C75;">"about"</span>: <span style="color: #98c379;">"I code things for fun, challenging myself to learn new things."</span>,<br>
+                &emsp;<span style="color: #e06C75;">"github"</span>: <span style="color: #98c379;">"<a href="https://github.com/Periapsises" target="_blank">https://github.com/Periapsises</a>"</span>,<br>
+                &emsp;<span style="color: #e06C75;">"languages"</span>: [<br>
+                &emsp;&emsp;<span style="color: #98c379;">"Lua"</span>,<br>
+                &emsp;&emsp;<span style="color: #98c379;">"C#"</span>,<br>
+                &emsp;&emsp;<span style="color: #98c379;">"JavaScript"</span>,<br>
+                &emsp;&emsp;<span style="color: #98c379;">"TypeScript"</span><br>
+                &emsp;],<br>
+                &emsp;<span style="color: #e06C75;">"interests"</span>: [<br>
+                &emsp;&emsp;<span style="color: #98c379;">"Coding"</span>,<br>
+                &emsp;&emsp;<span style="color: #98c379;">"Gaming"</span><br>
+                &emsp;],<br>
+                }
+            </p>
+        </div>
     </div>
 </body>
 
