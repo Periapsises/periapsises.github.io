@@ -9,18 +9,26 @@
     <meta property="og:title" content="Periapsises">
     <meta property="og:description" content="Hi, welcome to my site">
     <meta property="og:url" content="https://periapsises.github.io/">
-    <meta property="og:image" content="https://github.com/Periapsises/periapsises.github.io/blob/main/assets/profile.jpg?raw=true">
+    <meta property="og:image"
+        content="https://github.com/Periapsises/periapsises.github.io/blob/main/assets/profile.jpg?raw=true">
     <meta name="theme-color" data-reach-helmet="true" content="#61afef">
 
     <style>
-        html, body {
+        @font-face {
+            font-family: "jetbrains-mono";
+            src: url("fonts/JetBrainsMono-1.0.3/web/woff2/JetBrainsMono-Regular.woff2");
+        }
+
+        html,
+        body {
             margin: 0;
             width: 100%;
             height: 100%;
         }
+
         body {
             background-color: #23272e;
-            background-image: url('assets/background.jpg');
+            background-image: url('images/background.jpg');
             background-size: cover;
             background-repeat: no-repeat;
 
@@ -29,12 +37,16 @@
             overflow: hidden;
         }
 
-        div { margin: 16px; }
+        div {
+            margin: 16px;
+        }
+
         p {
             margin: 0;
             padding: 16px;
-            font-family: 'Courier New', Courier, monospace;
-            font-size: 14pt;
+            font-family: "jetbrains-mono";
+            font-size: 20px;
+            line-height: 30px;
 
             color: white;
         }
@@ -46,7 +58,7 @@
 
         #json {
             max-width: 1024px;
-            
+
             border-radius: 8px;
             background-color: #23272e;
             border: 1px solid #3e4452;
@@ -71,7 +83,8 @@
             color: #61afef !important;
         }
 
-        a:link, a:visited {
+        a:link,
+        a:visited {
             color: #98c379;
         }
     </style>
@@ -80,7 +93,7 @@
 <body>
     <div style="flex: 0 0 auto">
         <div style="flex: 1 0 auto">
-            <img src="./assets/profile.jpg" id="profile" style="width: 256px; height: 256px;">
+            <img src="images/profile.jpg" id="profile" style="width: 256px; height: 256px;">
         </div>
     </div>
     <div style="flex: 1 0 auto;">
@@ -89,9 +102,13 @@
             <p>
                 {<br>
                 &emsp;<span style="color: #e06C75;">"name"</span>: <span style="color: #98c379;">"Periapsis"</span>,<br>
-                &emsp;<span style="color: #e06C75;">"aliases"</span>: [<span style="color: #98c379;">"Periapsises"</span>],<br>
-                &emsp;<span style="color: #e06C75;">"about"</span>: <span style="color: #98c379;">"I code things for fun, challenging myself to learn new things."</span>,<br>
-                &emsp;<span style="color: #e06C75;">"github"</span>: <span style="color: #98c379;">"<a href="https://github.com/Periapsises" target="_blank">https://github.com/Periapsises</a>"</span>,<br>
+                &emsp;<span style="color: #e06C75;">"aliases"</span>: [<span
+                    style="color: #98c379;">"Periapsises"</span>],<br>
+                &emsp;<span style="color: #e06C75;">"about"</span>: <span style="color: #98c379;">"I code things for
+                    fun, challenging myself to learn new things."</span>,<br>
+                &emsp;<span style="color: #e06C75;">"github"</span>: <span style="color: #98c379;">"<a
+                        href="https://github.com/Periapsises"
+                        target="_blank">https://github.com/Periapsises</a>"</span>,<br>
                 &emsp;<span style="color: #e06C75;">"languages"</span>: [<br>
                 &emsp;&emsp;<span style="color: #98c379;">"Lua"</span>,<br>
                 &emsp;&emsp;<span style="color: #98c379;">"C#"</span>,<br>
@@ -101,7 +118,7 @@
                 &emsp;<span style="color: #e06C75;">"interests"</span>: [<br>
                 &emsp;&emsp;<span style="color: #98c379;">"Coding"</span>,<br>
                 &emsp;&emsp;<span style="color: #98c379;">"Gaming"</span><br>
-                &emsp;],<br>
+                &emsp;]<br>
                 }
             </p>
         </div>

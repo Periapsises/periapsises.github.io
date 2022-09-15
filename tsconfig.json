@@ -1,0 +1,10 @@
+{
+    "compilerOptions": {
+        "noEmitOnError": true,
+        "noImplicitAny": true,
+        "sourceMap": false,
+        "target": "ES6"
+    },
+    "include": ["**/*.ts"],
+    "compileOnSave": true
+}
