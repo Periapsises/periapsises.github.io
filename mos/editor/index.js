@@ -1,8 +1,10 @@
-import { Language } from './scripts/languages';
+import { Language } from './scripts/languages.js';
 
-function onWindowLoaded() {
-    let lang = Language.getLanguage('assembly');
+async function onWindowLoaded() {
+    let lang = await Language.getLanguage('assembly');
     let container = document.getElementById('container');
     console.log(lang);
 }
+
 window.addEventListener('DOMContentLoaded', onWindowLoaded);
+window.Language = Language;

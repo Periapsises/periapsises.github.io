@@ -14,12 +14,15 @@ class LanguageInfo {
         }
     }
 }
+
 class Language {
-    static getLanguage(name) {
+    static languages = {};
+
+    static async getLanguage(name) {
         if (Language.languages[name] != null)
             return Language.languages[name];
 
-        fetch(name + '.json')
+        Language.languages[name] = await fetch(`scripts/languages/${name}.json`)
             .then((response) => {
                 if (!response.ok) {
                     throw new Error(`HTTP Error: ${response.status}`);
@@ -27,7 +30,7 @@ class Language {
                 return response.json();
             })
             .then((content) => {
-                Language.languages[name] = new LanguageInfo(content);
+                return new LanguageInfo(content);
             })
             .catch((error) => {
                 throw new Error(`Could not fetch ${name}.json: ${error}`);
@@ -36,6 +39,5 @@ class Language {
         return Language.languages[name];
     }
 }
-Language.languages = {};
 
 export { Language };
