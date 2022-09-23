@@ -7,4 +7,3 @@ async function onWindowLoaded() {
 }
 
 window.addEventListener('DOMContentLoaded', onWindowLoaded);
-window.Language = Language;
