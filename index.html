@@ -35,6 +35,10 @@
             display: flex;
             flex-flow: row;
             overflow: hidden;
+
+            font-family: "jetbrains-mono";
+            font-size: 20px;
+            line-height: 30px;
         }
 
         div {
@@ -44,29 +48,36 @@
         p {
             margin: 0;
             padding: 16px;
-            font-family: "jetbrains-mono";
-            font-size: 20px;
-            line-height: 30px;
 
             color: white;
         }
 
         #profile {
             border-radius: 128px;
-            box-shadow: 0px 0px 24px black;
         }
 
-        #json {
+        .file {
             max-width: 1024px;
 
             border-radius: 8px;
             background-color: #23272e;
             border: 1px solid #3e4452;
-
-            box-shadow: 0px 0px 24px black;
         }
 
-        #header {
+        .file a {
+            text-decoration: underline;
+        }
+
+        .file a:hover {
+            color: #61afef !important;
+        }
+
+        .file a:link,
+        .file a:visited {
+            color: #98c379;
+        }
+
+        .header {
             background-color: #1e2227;
             border-radius: 8px 8px 0 0;
             border-bottom-style: solid;
@@ -75,17 +86,24 @@
             color: #61afef;
         }
 
-        a {
-            text-decoration: underline;
+        #buttons {
+            padding: 4px;
+            border-radius: 8px;
         }
 
-        a:hover {
-            color: #61afef !important;
+        .shadow {
+            box-shadow: 0px 0px 24px black;
         }
 
-        a:link,
-        a:visited {
-            color: #98c379;
+        .button {
+            min-height: 34px;
+            border-radius: 8px;
+            background-color: #3e4452;
+            text-align: center;
+        }
+
+        a:link {
+            text-decoration: none;
         }
 
         .red {
@@ -101,12 +119,20 @@
 <body>
     <div style="flex: 0 0 auto">
         <div style="flex: 1 0 auto">
-            <img src="images/profile.jpg" id="profile" style="width: 256px; height: 256px;">
+            <img src="images/profile.jpg" id="profile" style="width: 256px; height: 256px;" class="shadow">
+            <div class="file shadow">
+                <p class="header">My Projects</p>
+                <a href="">
+                    <div class="button">
+                        <p>Mos 6502</p>
+                    </div>
+                </a>
+            </div>
         </div>
     </div>
     <div style="flex: 1 0 auto;">
-        <div id="json">
-            <p id="header">profile/about.json</p>
+        <div class="file shadow">
+            <p class="header">profile/about.json</p>
             <p>
                 {<br>
                 &emsp;<span class="red">"name"</span>: <span class="green">"Periapsis"</span>,<br>
