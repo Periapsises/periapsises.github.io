@@ -1,0 +1,47 @@
+html,
+body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    background-color: #23272e;
+
+    display: flex;
+    flex-direction: row;
+}
+
+#sidebar {
+    flex: 0 1 20%;
+}
+
+#sidebar * {
+    width: 100%;
+}
+
+#sidebar input {
+    padding: 0;
+    width: 100%;
+    background-color: #16181d;
+    color: white;
+    border: none;
+    outline: none;
+}
+
+.category h2 {
+    padding-left: 16px;
+    background-color: #393f4b;
+}
+
+#information {
+    flex: 1 1 auto;
+
+    display: flex;
+    flex-direction: column;
+}
+
+#links {
+    flex: 1 1 auto;
+    vertical-align: bottom;
+}
