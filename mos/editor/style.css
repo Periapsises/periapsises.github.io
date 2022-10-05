@@ -7,20 +7,29 @@ html, body {
 }
 
 body {
+    display: flex;
+    flex-flow: column;
+
     font-family: 'JetBrains Mono';
     font-size: 20px;
 }
 
 #scroller {
-    width: 100%;
-    height: 100%;
+    flex: 1 1 auto;
     display: flex;
     flex-flow: row;
 }
 
 #gutter {
     flex: 0 1 60px;
+    position: relative;
     padding-right: 4px;
+    color: white;
+    text-align: right;
+}
+
+#gutter span {
+    display: block;
 }
 
 #container {
@@ -31,6 +40,8 @@ body {
 
 #input, #overlay {
     position: absolute;
+    padding: 0 0 0 16px;
+    margin: 0;
     width: 100%;
     height: 100%;
     top: 0;
