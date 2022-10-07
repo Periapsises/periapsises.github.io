@@ -10,7 +10,7 @@ export class Editor {
     constructor() {
         this.scroller = document.createElement('div');
         this.scroller.id = 'scroller';
-        document.body.appendChild(this.scroller);
+        document.getElementById('editor').appendChild(this.scroller);
 
         this.gutter = document.createElement('div');
         this.gutter.id = 'gutter'
