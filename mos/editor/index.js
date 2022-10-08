@@ -1,4 +1,5 @@
 import { Editor } from './scripts/editor.js';
+import { Tab } from './scripts/tab.js';
 import { Language } from './scripts/languages.js';
 
 async function onWindowLoaded() {
@@ -6,7 +7,8 @@ async function onWindowLoaded() {
     window.Language = Language;
 
     let editor = new Editor();
-    let lang = await Language.getLanguage('assembly');
+    let tab = new Tab('unknown', editor);
+    tab.setActive(true);
 }
 
 window.addEventListener('DOMContentLoaded', onWindowLoaded);
