@@ -6,6 +6,9 @@ export class Tab {
     constructor(name, editor) {
         this.tab = document.createElement('div');
         this.tab.className = 'tab';
+        this.tab.addEventListener('click', () => {
+            editor.selectTab(this);
+        });
 
         this.icon = document.createElement('div');
         this.icon.className = 'icon';
@@ -20,6 +23,10 @@ export class Tab {
             </svg>
         `;
 
+        close.addEventListener('click', () => {
+            this.tab.remove();
+        });
+
         this.tab.appendChild(this.icon);
         this.tab.appendChild(this.label);
         this.tab.appendChild(close);
@@ -28,5 +35,9 @@ export class Tab {
     }
 
     setActive(active) {
+        if (active)
+            this.tab.classList.add('active');
+        else
+            this.tab.classList.remove('active');
     }
 }

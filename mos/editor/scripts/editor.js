@@ -7,6 +7,8 @@ export class Editor {
     lines = [''];
     lineNumberCount = 0;
 
+    activeTab;
+
     constructor() {
         /*
         this.scroller = document.createElement('div');
@@ -78,5 +80,13 @@ export class Editor {
             span.innerHTML = line.toString();
             this.gutter.appendChild(span);
         }
+    }
+
+    selectTab(tab) {
+        if (this.activeTab != null)
+            this.activeTab.setActive(false);
+        
+        this.activeTab = tab;
+        tab.setActive(true);
     }
 }
