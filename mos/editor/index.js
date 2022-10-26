@@ -7,8 +7,13 @@ async function onWindowLoaded() {
     window.Language = Language;
 
     let editor = new Editor();
-    let tab = new Tab('unknown', editor);
+    let tab = new Tab('Untitled-3', editor);
     tab.setActive(true);
+
+    const tabDragArea = document.querySelector('.tabs');
+    new Sortable(tabDragArea, {
+        animation: 350
+    });
 }
 
 window.addEventListener('DOMContentLoaded', onWindowLoaded);

@@ -8,9 +8,10 @@ export class Editor {
     lineNumberCount = 0;
 
     constructor() {
+        /*
         this.scroller = document.createElement('div');
         this.scroller.id = 'scroller';
-        document.getElementById('editor').appendChild(this.scroller);
+        document.querySelector('.editor').appendChild(this.scroller);
 
         this.gutter = document.createElement('div');
         this.gutter.id = 'gutter'
@@ -49,6 +50,7 @@ export class Editor {
 
         this.addLineNumbers();
         this.input.focus();
+        */
     }
 
     onTextChanged() {

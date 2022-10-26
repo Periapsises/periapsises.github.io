@@ -8,14 +8,36 @@
     <title>Mos Editor</title>
 
     <link href='https://fonts.googleapis.com/css?family=JetBrains Mono' rel='stylesheet'>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.15.0/Sortable.min.js" integrity="sha512-Eezs+g9Lq4TCCq0wae01s9PuNWzHYoCMkE97e2qdkYthpI0pzC3UGB03lgEHn2XM85hDOUF6qgqqszs+iXU4UA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <link rel="stylesheet" href="./style.css">
     <script type="module" src="./index.js"></script>
 </head>
 
 <body>
-    <div id="tabs"></div>
-    <div id="editor"></div>
+    <div class="editor-container">
+        <div class="tabs">
+            <div class="tab active">
+                <div class="icon"></div>
+                <div class="label">Untitled-1</div>
+                <div class="close-action">
+                    <svg width="18px" height="18px" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <use xlink:href="/fonts/VSCode-Codicons/codicon.svg#close"></use>
+                    </svg>
+                </div>
+            </div>
+            <div class="tab">
+                <div class="icon"></div>
+                <div class="label">Untitled-2</div>
+                <div class="close-action">
+                    <svg width="18px" height="18px" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <use xlink:href="/fonts/VSCode-Codicons/codicon.svg#close"></use>
+                    </svg>
+                </div>
+            </div>
+        </div>
+        <div class="editor"></div>
+    </div>
 </body>
 
 </html>
