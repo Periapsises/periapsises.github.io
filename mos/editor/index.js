@@ -7,14 +7,17 @@ async function onWindowLoaded() {
     window.Language = Language;
 
     let editor = new Editor();
-    let tab = new Tab('Untitled-1', editor);
+    editor.selectTab(new Tab('Untitled-1', editor));
     new Tab('Untitled-2', editor);
-
-    editor.selectTab(tab);
 
     const tabDragArea = document.querySelector('.tabs');
     new Sortable(tabDragArea, {
         animation: 350
+    });
+
+    tabDragArea.addEventListener('dblclick', () => {
+        let newTab = new Tab('Untitled', editor);
+        editor.selectTab(newTab);
     });
 }
 
