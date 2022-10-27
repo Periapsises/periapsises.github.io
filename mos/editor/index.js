@@ -67,8 +67,8 @@ class Editor {
         this.editor.appendChild(this.tabContainer);
         this.editor.appendChild(this.container);
         document.body.appendChild(this.editor);
-
-        new Sortable(this.tabContainer, {
+        
+        $(this.tabContainer).sortable({
             animation: 350
         });
 
