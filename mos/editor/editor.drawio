@@ -1,0 +1,28 @@
+<mxfile host="65bd71144e">
+    <diagram id="e9SwUlkqc1szw522njlq" name="Information">
+        <mxGraphModel dx="1092" dy="511" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="4" value="Editor - General" style="swimlane;expand=1;collapsible=0;" vertex="1" parent="1">
+                    <mxGeometry x="40" y="40" width="780" height="890" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="Editor - Display" style="swimlane;expand=1;collapsible=0;" vertex="1" parent="4">
+                    <mxGeometry x="400" y="240" width="370" height="640" as="geometry"/>
+                </mxCell>
+                <mxCell id="8" value="&lt;h1&gt;Display features&lt;/h1&gt;&lt;p&gt;These features depend on the kind of text to display on the screen. Such as binary data, text data, images and more.&lt;/p&gt;" style="text;html=1;strokeColor=none;fillColor=none;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="6">
+                    <mxGeometry x="10" y="30" width="350" height="200" as="geometry"/>
+                </mxCell>
+                <mxCell id="9" value="&lt;h1&gt;General features&lt;/h1&gt;&lt;p&gt;These are the basic features of the editor. They are used for all files and don't depend on language or display type. The include features like tabs, settings and such.&lt;/p&gt;" style="text;html=1;strokeColor=none;fillColor=none;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="4">
+                    <mxGeometry x="10" y="30" width="760" height="200" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="Editor - Language" style="swimlane;expand=1;collapsible=0;" vertex="1" parent="1">
+                    <mxGeometry x="50" y="280" width="370" height="640" as="geometry"/>
+                </mxCell>
+                <mxCell id="7" value="&lt;h1&gt;Language features&lt;/h1&gt;&lt;p&gt;These are features that depend on the language being used.&amp;nbsp;&lt;span&gt;This could be plain text, assembly, json or other languages.&lt;/span&gt;&lt;/p&gt;" style="text;html=1;strokeColor=none;fillColor=none;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="5">
+                    <mxGeometry x="10" y="30" width="350" height="200" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
