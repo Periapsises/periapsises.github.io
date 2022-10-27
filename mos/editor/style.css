@@ -39,6 +39,10 @@ html, body {
     background-color: rgb(33, 37, 43);
 
     border-right: 1px rgb(24, 26, 31) solid;
+
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .active {
