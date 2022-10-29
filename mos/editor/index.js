@@ -1,3 +1,5 @@
+import { TextRenderer } from './renderers/text.js'
+
 class Editor {
     constructor() {
         this.editor = document.createElement('div');
@@ -6,9 +8,10 @@ class Editor {
         this.container = document.createElement('div')
         this.container.className = 'container';
 
-        this.editor.appendChild(this.tabContainer);
         this.editor.appendChild(this.container);
         document.body.appendChild(this.editor);
+
+        new TextRenderer(this, this.container);
     }
 }
 
