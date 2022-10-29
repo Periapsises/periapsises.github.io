@@ -2,11 +2,10 @@ import { Renderer } from './renderer.js'
 
 export class TextRenderer extends Renderer {
     /**
-     * @param {Editor} editor
-     * @param {HTMLDivElement} container
+     * @param {HTMLDivElement} editor
      */
-    constructor(editor, container) {
-        super(editor, container);
+    constructor(editor) {
+        super(editor);
     }
 
     /**

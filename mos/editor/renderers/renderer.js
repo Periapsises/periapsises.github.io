@@ -1,13 +1,14 @@
 export class Renderer {
     /**
-     * @param {Editor} editor
-     * @param {HTMLDivElement} container
+     * @param {HTMLDivElement} editor
      */
-    constructor(editor, container) {
+    constructor(editor) {
         this.lines = [];
 
         this.editor = editor;
-        this.container = container;
+
+        let container = document.createElement('div');
+        container.className = 'container';
 
         this.gutter = document.createElement('div');
         this.gutter.className = 'gutter';
@@ -16,6 +17,9 @@ export class Renderer {
         this.entry.className = 'input';
         this.entry.placeholder = 'Enter your code here.';
         this.entry.spellcheck = false;
+
+        this.overlay = document.createElement('div');
+        this.overlay.className = 'overlay';
 
         let onInput = () => {
             let lines = this.entry.value.split('\n');
@@ -32,8 +36,10 @@ export class Renderer {
 
         this.entry.addEventListener('input', onInput);
 
-        container.appendChild(this.gutter);
+        editor.appendChild(this.gutter);
+        editor.appendChild(container)
         container.appendChild(this.entry);
+        container.appendChild(this.overlay);
 
         onInput();
     }

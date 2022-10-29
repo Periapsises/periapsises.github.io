@@ -53,27 +53,34 @@ body {
 
 /* Container styling */
 .container {
-    display: flex;
     flex: 1 1 auto;
+    position: relative;
+}
+
+.container > * {
+    position: absolute;
+    left: 0;
+    top: 0;
 }
 
 /* Gutter styling */
-.container .gutter {
+.editor .gutter {
+    flex: 0 0 64px;
     display: flex;
     flex-flow: column;
-    flex: 0 0 64px;
 
-    padding-top: 2px;
     margin-right: 12px;
 
     line-height: inherit;
     text-align: right;
 }
 
-/* Textarea styling */
-.container .input {
+/* Input styling */
+.editor .input {
+    padding: 0;
     resize: none;
-    flex: 1 1 auto;
+    width: 100%;
+    height: 100%;
 
     font-family: inherit;
     font-size: inherit;
@@ -84,4 +91,12 @@ body {
     caret-color: white;
     outline: none;
     border: none;
+}
+
+/* Overlay styling */
+.editor .overlay {
+    width: 100%;
+    height: 100%;
+
+    pointer-events: none;
 }
