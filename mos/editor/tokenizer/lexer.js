@@ -52,5 +52,9 @@ export class Lexer {
 
             return token;
         }
+
+        let token = new Token('text', this.text.substring(this.position));
+        this.position = this.text.length;
+        return token;
     }
 }

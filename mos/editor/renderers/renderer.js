@@ -18,7 +18,7 @@ export class Renderer {
         this.entry.placeholder = 'Enter your code here.';
         this.entry.spellcheck = false;
 
-        this.overlay = document.createElement('div');
+        this.overlay = document.createElement('pre');
         this.overlay.className = 'overlay';
 
         let onInput = () => {

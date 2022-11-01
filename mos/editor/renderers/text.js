@@ -1,6 +1,7 @@
 import { Renderer } from './renderer.js'
 import { Lexer } from '../tokenizer/lexer.js'
 import { TextLanguage } from '../tokenizer/languages/text.js'
+import { AssemblyLanguage } from '../tokenizer/languages/assembly.js'
 
 export class TextRenderer extends Renderer {
     /**
@@ -16,14 +17,14 @@ export class TextRenderer extends Renderer {
     onTextInput(text) {
         this.overlay.innerHTML = '';
 
-        let lexer = new Lexer(text, TextLanguage.states);
+        let lexer = new Lexer(text, AssemblyLanguage.states);
         let tokens = lexer.getTokens();
 
         tokens.forEach(token => {
             let span = document.createElement('span');
-            span.innerHTML = token.value.replaceAll('\n', '<br>');
+            span.innerHTML = token.value;
+            span.className = token.type.replaceAll('.', ' ');
             span.classList.add('token');
-            span.classList.add(token.type);
 
             this.overlay.appendChild(span);
         });

@@ -1,0 +1,7 @@
+.token.instruction {
+    color: rgb(224, 107, 116);
+}
+
+.token.operand.identifier {
+    color: rgb(209, 154, 102);
+}
