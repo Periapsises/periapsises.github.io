@@ -21,7 +21,7 @@ export class TextRenderer extends Renderer {
 
         tokens.forEach(token => {
             let span = document.createElement('span');
-            span.innerHTML = token.value;
+            span.innerHTML = token.value.replaceAll('\n', '<br>');
             span.classList.add('token');
             span.classList.add(token.type);
 

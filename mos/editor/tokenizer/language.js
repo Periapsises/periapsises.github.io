@@ -9,17 +9,6 @@ export class Language {
         this.name = name;
         this.extension = extension;
         this.renderer = renderer;
-        this.states = {};
-
-        for (const state in states) {
-            this.states[state] = [];
-
-            states[state].forEach(pattern => {
-                this.states[state].push({
-                    token: pattern.token,
-                    regex: new RegExp(pattern.regex)
-                });
-            });
-        }
+        this.states = states;
     }
 }
