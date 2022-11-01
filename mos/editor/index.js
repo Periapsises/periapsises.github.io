@@ -1,4 +1,5 @@
 import { TextRenderer } from './renderers/text.js'
+import { Language } from './tokenizer/language.js'
 
 class Editor {
     constructor() {

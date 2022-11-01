@@ -1,13 +1,18 @@
-class Lexer {
+import { Token } from './token.js'
+
+export class Lexer {
     constructor(text, states) {
         this.state = 'initial';
         this.stack = [];
-        this.states = {};
+        this.states = states;
         this.position = 0;
         this.text = text;
         this.states = states;
     }
 
+    /**
+     * @returns {Token[]} tokens
+     */
     getTokens() {
         let token;
         let tokens = [];
@@ -18,16 +23,22 @@ class Lexer {
         return tokens;
     }
 
+    /**
+     * @returns {Token} token
+     */
     getNextToken() {
-        if (this.position > this.text.length)
+        if (this.position >= this.text.length)
             return new Token('eof', '');
 
-        for (let pattern of this.states[this.state].patterns) {
-            let result = pattern.pattern.exec(this.text.substring(this.position));
-            if ((result === null || result === void 0 ? void 0 : result.length) == 0)
+        for (let pattern of this.states[this.state]) {
+            let result = pattern.regex.exec(this.text.substring(this.position));
+            
+            if (result === null || result.length == 0)
                 continue;
+            
+            this.position += result[0].length;
 
-            let token = new Token(pattern.type, result[0]);
+            let token = new Token(pattern.token, result[0]);
             if (pattern.state == null)
                 return token;
 
