@@ -3,11 +3,11 @@ import { Language } from '../language.js'
 let states = {
     "initial": [
         { "token": "comment.line", "regex": /^\/\/[^\n]*/is },
-        { "token": "comment.block", "regex": /^\/\\*.*?(\\*\/|$)/is },
-        { "token": "label", "regex": /^[_a-z][_\\.\\w]*:/is },
+        { "token": "comment.block", "regex": /^\/\*.*?(\*\/|$)/is },
+        { "token": "label", "regex": /^[_a-z][_\.\w]*:/is },
         { "token": "instruction", "regex": /^[a-z]+/is, "state": "operands" },
         { "token": "directive.hash", "regex": /^#[^ \n]+/is, "state": "operands" },
-        { "token": "directive.dot", "regex": /^\\.[^ \n]+/is, "state": "operands" },
+        { "token": "directive.dot", "regex": /^\.[^ \n]+/is, "state": "operands" },
         { "token": "control.newline", "regex": /^\n+/is }
     ],
     "operands": [
@@ -18,19 +18,19 @@ let states = {
         { "token": "comment.block", "regex": /^\/\\*.*?(\*\/|$)/is, "state": "last" }
     ],
     "string.dquote": [
-        { "token": "string.text", "regex": /^["\n\\]/is },
+        { "token": "string.text", "regex": /^[^"\n\\]*/is },
         { "token": "string.escape", "regex": /^\\./is },
         { "token": "string.quote", "regex": /^["\n]/is, "state": "last" }
     ],
     "string.squote": [
-        { "token": "string.text", "regex": /^['\n\\]/is },
+        { "token": "string.text", "regex": /^[^'\n\\]*/is },
         { "token": "string.escape", "regex": /^\\./is },
         { "token": "string.quote", "regex": /^['\n]/is, "state": "last" }
     ]
 }
 
 let common = [
-    { "token": "string.quote", "regex": /^\"/is, "state": "string.dquote" },
+    { "token": "string.quote", "regex": /^"/is, "state": "string.dquote" },
     { "token": "string.quote", "regex": /^'/is, "state": "string.squote" },
     { "token": "number.binary", "regex": /^0b[01]+/is },
     { "token": "number.decimal", "regex": /^0d[0-9]+/is },
@@ -45,9 +45,8 @@ let common = [
     { "token": "decorator.whitespace", "regex": /^ +/is }
 ]
 
-for (const state in states) {
-    Array.prototype.push.apply(states[state], common);
-}
+Array.prototype.push.apply(states.initial, common);
+Array.prototype.push.apply(states.operands, common);
 
 let AssemblyLanguage = new Language("Assembly", ".asm", "text", states);
 export { AssemblyLanguage }

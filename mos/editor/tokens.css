@@ -1,7 +1,27 @@
 .token.instruction {
-    color: rgb(224, 107, 116);
+    color: rgb(97, 175, 239);
 }
 
 .token.operand.identifier {
+    color: rgb(229, 192, 123);
+}
+
+.token.string {
+    color: rgb(152, 195, 121);
+}
+
+.token.comment {
+    color: rgb(127, 132, 142);
+}
+
+.token.label {
+    color: rgb(86, 182, 194);
+}
+
+.token.directive {
+    color: rgb(198, 120, 221);
+}
+
+.token.number {
     color: rgb(209, 154, 102);
 }
