@@ -21,6 +21,19 @@ export class Renderer {
         this.overlay = document.createElement('pre');
         this.overlay.className = 'overlay';
 
+        function onKeyDown(e) {
+            if (e.ctrlKey && e.key === 's')
+                e.preventDefault();
+            
+            if (e.key === 'Tab') {
+                document.execCommand('insertText', false, '    ');
+                e.preventDefault();
+                this.onTextInput(this.entry.value);
+            }
+        }
+
+        this.entry.addEventListener('keydown', onKeyDown)
+
         let onInput = () => {
             let lines = this.entry.value.split('\n');
             let newCount = lines.length;
