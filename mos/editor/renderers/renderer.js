@@ -21,14 +21,20 @@ export class Renderer {
         this.overlay = document.createElement('pre');
         this.overlay.className = 'overlay';
 
+        let renderer = this;
         function onKeyDown(e) {
-            if (e.ctrlKey && e.key === 's')
+            if (e.ctrlKey && e.key === 's') {
                 e.preventDefault();
+            
+                let event = new Event('editorsave');
+                event.text = renderer.entry.value;
+                document.dispatchEvent(event);
+            }
             
             if (e.key === 'Tab') {
                 document.execCommand('insertText', false, '    ');
                 e.preventDefault();
-                this.onTextInput(this.entry.value);
+                renderer.onTextInput(renderer.entry.value);
             }
         }
 
