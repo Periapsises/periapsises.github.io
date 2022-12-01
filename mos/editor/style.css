@@ -111,3 +111,7 @@ body {
     font-weight: inherit;
     line-height: inherit;
 }
+
+.editor .overlay span {
+    white-space: pre;
+}

@@ -25,3 +25,7 @@
 .token.number {
     color: rgb(209, 154, 102);
 }
+
+.token.text {
+    color: rgb(171, 178, 191);
+}
