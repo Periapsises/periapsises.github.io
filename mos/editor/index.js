@@ -165,7 +165,8 @@ const createEditorHTML = function () {
 
     let input = document.createElement('textarea');
     input.className = 'input';
-    input.placeholder = 'Enter your code here'
+    input.placeholder = 'Enter your code here';
+    input.spellcheck = false;
 
     let overlay = document.createElement('div');
     overlay.className = 'overlay';
