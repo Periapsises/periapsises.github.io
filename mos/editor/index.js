@@ -29,6 +29,31 @@ const onTextinputChanged = function (text, overlay, gutter) {
 }
 
 /**
+ * Handle key shortcuts
+ * @param {KeyboardEvent} e The event that was triggered
+ */
+const onKeyDownEvent = function (e) {
+    let isCtrl = e.ctrlKey;
+    let key = e.key;
+
+    // Ctrl+S
+    if (isCtrl && key === 's') {
+        e.preventDefault();
+
+        let event = new Event('editorsave');
+        event.text = Editor.input.value;
+        document.dispatchEvent(event);
+    }
+
+    // Tab
+    if (!isCtrl && key === 'Tab') {
+        e.preventDefault();
+        document.execCommand('insertText', false, '    ');
+        Editor.input.dispatchEvent(new Event('input'));
+    }
+}
+
+/**
  * Creates the required HTML elements to form an Editor
  */
 const createEditorHTML = function () {
@@ -50,6 +75,7 @@ const createEditorHTML = function () {
     overlay.className = 'overlay';
 
     input.addEventListener('input', () => onTextinputChanged(input.value, overlay, gutter));
+    input.addEventListener('keydown', onKeyDownEvent)
 
     let e = new Event('input');
     input.dispatchEvent(e);
