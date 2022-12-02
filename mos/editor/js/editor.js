@@ -73,7 +73,7 @@ export default class Editor {
         let textChangedEvent = new Event('editortextchanged');
         textChangedEvent.editor = this;
         textChangedEvent.text = text;
-        textChangedEvent.isOriginal = isOriginal
+        textChangedEvent.isOriginal = isOriginal;
         document.dispatchEvent(textChangedEvent);
     }
 
