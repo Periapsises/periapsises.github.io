@@ -16,6 +16,11 @@ export default class Editor {
         this.input.addEventListener('keydown', (e) => this.#onKeyBind(e));
     }
 
+    setCode(code) {
+        this.input.value = code;
+        this.hash = code.getHash();
+    }
+
     setHash(hash) {
         this.hash = hash;
     }
