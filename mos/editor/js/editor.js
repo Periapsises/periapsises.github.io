@@ -19,6 +19,9 @@ export default class Editor {
     setCode(code) {
         this.input.value = code;
         this.hash = code.getHash();
+
+        let changeEvent = new Event('input');
+        this.input.dispatchEvent(changeEvent);
     }
 
     setHash(hash) {
