@@ -89,6 +89,7 @@ export default class Editor {
         if (ctrl && key === 's') {
             let saveEvent = new Event('editorsave');
             saveEvent.editor = this;
+            saveEvent.text = this.input.value;
             document.dispatchEvent(saveEvent);
 
             e.preventDefault();
