@@ -73,6 +73,7 @@ body {
 
     line-height: inherit;
     text-align: right;
+    color: rgb(73, 81, 98);
 }
 
 /* Input styling */
@@ -97,6 +98,10 @@ body {
 .editor .input::selection {
     color: transparent;
     background-color: rgb(61, 69, 86);
+}
+
+.editor .input::placeholder {
+    color: rgb(73, 81, 98);
 }
 
 /* Overlay styling */

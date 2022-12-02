@@ -14,7 +14,7 @@ const onTextinputChanged = function (text, overlay, gutter) {
     let lineCount = text.split('\n').length;
     for (let i = 0; i < lineCount; i++) {
         let lineNum = document.createElement('span');
-        lineNum.innerHTML = i.toString();
+        lineNum.innerHTML = (i + 1).toString();
         gutter.appendChild(lineNum);
     }
 
