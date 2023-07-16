@@ -1,5 +1,4 @@
 function GameDetails(servername, serverurl, mapname, maxplayers, steamid, gamemode) {
-    document.getElementById("mapname").innerHTML = "Currently playing on " + mapname;
 }
 
 function SetStatusChanged(status) {
@@ -15,6 +14,7 @@ window.onload = function () {
     Particles.init({
         selector: '.background',
         maxParticles: 250,
-        color: ['#ffffff', '#29adf0', '#6ba8c7']
+        sizeVariations: 5,
+        color: ['#ffffff', '#ff9ceb', '#9cfff2', '#9ca9ff']
     });
 };

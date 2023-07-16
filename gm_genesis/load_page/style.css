@@ -11,7 +11,10 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #1d282e;
+    background-image: url('https://w0.peakpx.com/wallpaper/752/102/HD-wallpaper-multi-colour-blur-simple.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 }
 
 .background {
