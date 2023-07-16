@@ -1,0 +1,44 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #1d282e;
+}
+
+.background {
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
+    z-index: 0;
+}
+
+.server-info {
+    padding-left: 100pt;
+    font-family: 'Advent Pro', sans-serif;
+    color: white;
+}
+
+h1 {
+    font-family: 'Advent Pro', sans-serif;
+    font-size: 100pt;
+    color: white;
+    padding-left: 100pt;
+}
+
+h2 {
+    font-size: 30pt;
+}
+
+b {
+    border-bottom: 1px solid white;
+}
